@@ -1,14 +1,280 @@
 [tool.poetry]
 name = "pydantic-sqlalchemy-tutorial"
 version = "0.1.0"
-description = ""
+description = "Tutorial for Pydantic and SQLAlchemy"
+license = "MIT"
 authors = ["Juan Pablo Cadena Aguilar <jpcadena@espol.edu.ec>"]
+maintainers = ["Juan Pablo Cadena Aguilar <jpcadena@espol.edu.ec>"]
 readme = "README.md"
+homepage = "https://github.com/jpcadena/pydantic-sqlalchemy-tutorial"
+repository = "https://github.com/jpcadena/pydantic-sqlalchemy-tutorial"
+documentation = "https://github.com/jpcadena/pydantic-sqlalchemy-tutorial"
+keywords = [
+    "python",
+    "pydantic",
+    "sqlalchemy",
+    "backend",
+    "restful api",
+    "fastapi",
+    "postgresql",
+    "data-validation",
+    "etl-pipeline",
+    "data-engineering",
+    "database-orm",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Web Environment",
+    "Framework :: FastAPI",
+    "Framework :: Pydantic",
+    "Framework :: Pydantic :: 2",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Natural Language :: Spanish",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Email",
+    "Topic :: Communications :: Internet Phone",
+    "Topic :: Database",
+    "Topic :: Database :: Database Engines/Servers",
+    "Topic :: Documentation",
+    "Topic :: File Formats",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: Software Development :: Version Control :: CVS",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Text Processing :: Markup :: reStructuredText",
+    "Typing :: Typed",
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pydantic = "^2.7.1"
+pydantic-core = "^2.18.2"
+pydantic-settings = "^2.2.1"
+pydantic-extra-types = "^2.7.0"
+email-validator = "^2.1.1"
+python-dotenv = "^1.0.1"
+sqlalchemy = "^2.0.29"
+psycopg = {extras = ["binary", "pool"], version = "^3.1.18"}
+isort = "^5.13.2"
+black = "^24.4.2"
+ruff = "^0.4.2"
+mypy = "^1.10.0"
+pre-commit = "^3.7.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.extras]
+pgsql = ["psycopg",]
+databases = ["psycopg",]
+
+[tool.poetry.urls]
+"Tutorial for Pydantic and SQLAlchemy" = "https://github.com/jpcadena/pydantic-sqlalchemy-tutorial"
+
+[tool.isort]
+py_version = 312
+skip_glob = ["cache/*", ".ruff_cache/*", ".pytest_cache/*", ".dockerignore", "logs/*",]
+skip_gitignore = true
+line_length = 80
+multi_line_output = 3
+use_parentheses = true
+atomic = true
+include_trailing_comma = true
+force_grid_wrap = 0
+case_sensitive = true
+ensure_newline_before_comments = true
+profile = "black"
+remove_redundant_aliases = true
+color_output = true
+
+[tool.black]
+line-length = 80
+target-version = ["py312"]
+exclude = '''
+(
+    /(\.venv
+  | \.mypy_cache
+  | \.ruff_cache
+  | \.pytest_cache
+  | cache
+  | venv
+  | tests)/
+)
+'''
+skip-string-normalization = true
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".pytest_cache",
+    "cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+line-length = 80
+indent-width = 4
+target-version = "py312"
+fix = true
+output-format = "grouped"
+show-fixes = true
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "I", # isort
+    "C4", # flake8-comprehensions
+]
+ignore = [
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+]
+fixable = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I",
+    "N",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "ANN",
+    "ARG",
+    "BLE",
+    "COM",
+    "DJ",
+    "DTZ",
+    "EM",
+    "ERA",
+    "EXE",
+    "FBT",
+    "ICN",
+    "INP",
+    "ISC",
+    "NPY",
+    "PD",
+    "PGH",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "SLF",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = 80
+
+[tool.ruff.lint.isort]
+known-third-party = ["fastapi", "pydantic", "starlette",]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pep8-naming]
+# Allow Pydantic's `@validator` decorator to trigger class method treatment.
+classmethod-decorators = [
+    "pydantic.validator",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"  # google, numpy
+ignore-decorators = ["typing.overload",]
+
+[tool.ruff.lint.pylint]
+allow-dunder-method-names = ["__tablename__", "__table_args__",]  # PLW3201
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
+
+[tool.mypy]
+exclude = ".venv|venv|tests|cache|.mypy_cache|.ruff_cache|.pytest_cache"
+ignore_missing_imports = true
+follow_imports = "silent"
+python_version = "3.12"
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+implicit_reexport = false
+strict_equality = true
+strict = true
+show_error_context = true
+show_error_codes = true
+pretty = true
+plugins = ["pydantic.mypy"]
+show_traceback = true
+raise_exceptions = true
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
+
+[tool.bandit]
+skips = ["B101", "B601"]
