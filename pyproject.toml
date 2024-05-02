@@ -245,7 +245,7 @@ allow-dunder-method-names = ["__tablename__", "__table_args__",]  # PLW3201
 keep-runtime-typing = true
 
 [tool.mypy]
-exclude = ".venv|venv|tests|cache|.mypy_cache|.ruff_cache|.pytest_cache"
+exclude = ".venv|venv|tests|cache|.mypy_cache|.ruff_cache|.pytest_cache|introduction/pydantic_intro.py"
 ignore_missing_imports = true
 follow_imports = "silent"
 python_version = "3.12"

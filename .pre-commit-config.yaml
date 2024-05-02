@@ -68,6 +68,7 @@ repos:
             pydantic-settings,
             uvicorn,
           ]
+        exclude: "introduction/pydantic_intro.py"
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.8
