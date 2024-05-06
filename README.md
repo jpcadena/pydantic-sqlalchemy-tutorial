@@ -86,7 +86,7 @@ This guide is ideal for developers looking to improve their backend systems, dat
 1. Clone the **repository**
 
    ```bash
-   git clone https://github.com/VitaproBI/pydantic-sqlalchemy-tutorial.git
+   git clone https://github.com/jpcadena/pydantic-sqlalchemy-tutorial.git
    ```
 
 2. Change the directory to **root project**
@@ -218,7 +218,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 [python-url]: https://docs.python.org/3.12/
 [pycharm-url]: https://www.jetbrains.com/pycharm/
 [markdown-url]: https://daringfireball.net/projects/markdown/
-[github-url]: https://github.com/VitaproBI/pydantic-sqlalchemy-tutorial
+[github-url]: https://github.com/jpcadena/pydantic-sqlalchemy-tutorial
 [ruff-url]: https://beta.ruff.rs/docs/
 [black-url]: https://github.com/psf/black
 [mypy-url]: http://mypy-lang.org/
