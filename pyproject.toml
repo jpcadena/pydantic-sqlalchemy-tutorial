@@ -69,7 +69,7 @@ pydantic-settings = "^2.2.1"
 pydantic-extra-types = "^2.7.0"
 email-validator = "^2.1.1"
 python-dotenv = "^1.0.1"
-sqlalchemy = "^2.0.29"
+sqlalchemy = "^2.0.30"
 psycopg = {extras = ["binary", "pool"], version = "^3.1.18"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.4.2"
