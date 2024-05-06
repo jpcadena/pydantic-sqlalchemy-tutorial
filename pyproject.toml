@@ -68,14 +68,18 @@ pydantic-core = "^2.18.2"
 pydantic-settings = "^2.2.1"
 pydantic-extra-types = "^2.7.0"
 email-validator = "^2.1.1"
+phonenumbers = "^8.13.36"
 python-dotenv = "^1.0.1"
-sqlalchemy = "^2.0.29"
+sqlalchemy = "^2.0.30"
 psycopg = {extras = ["binary", "pool"], version = "^3.1.18"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.4.2"
-ruff = "^0.4.2"
+ruff = "^0.4.3"
 mypy = "^1.10.0"
 pre-commit = "^3.7.0"
+fastapi = {extras = ["all"], version = "^0.111.0"}
+uvicorn = "^0.29.0"
+starlette = "^0.37.2"
 
 
 [build-system]
