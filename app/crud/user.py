@@ -10,13 +10,14 @@ from typing import Any, Sequence
 from pydantic import NonNegativeInt, PositiveInt
 from sqlalchemy import Row, RowMapping, select
 from sqlalchemy.engine import ScalarResult
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import NoResultFound, SQLAlchemyError
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 
 from app.config.exceptions import DatabaseException
 from app.db.session import get_session
 from app.models.user import User
+from app.schemas.user import User as UserSchema
 from app.schemas.user import UserCreate, UserUpdate
 
 logger: logging.Logger = logging.getLogger(__name__)
@@ -59,8 +60,8 @@ class UserRepository:
     def read_users(
         self,
         offset: NonNegativeInt,
-        limit: PositiveInt,
-    ) -> list[User]:
+        limit: PositiveInt | None,
+    ) -> list[UserSchema]:
         """
         Retrieve a list of users from the database, with pagination
         :param offset: The number of users to skip before starting to
@@ -69,7 +70,7 @@ class UserRepository:
         :param limit: The maximum number of users to return
         :type limit: PositiveInt
         :return: A list of users
-        :rtype: list[User]
+        :rtype: list[UserSchema]
         """
         stmt: Select[tuple[User]] = select(User).offset(offset).limit(limit)
         with self.session as session:
@@ -82,7 +83,7 @@ class UserRepository:
             except SQLAlchemyError as sa_exc:
                 logger.error(sa_exc)
                 raise DatabaseException(str(sa_exc)) from sa_exc
-            return users
+            return [UserSchema.model_validate(user) for user in users]
 
     def create_user(
         self,
@@ -146,31 +147,40 @@ class UserRepository:
                 raise DatabaseException(str(db_exc)) from db_exc
             return updated_user
 
-    def delete_user(self, _id: PositiveInt) -> bool:
+    def delete_user(self, _id: PositiveInt) -> dict[str, Any]:
         """
         Delete a user from the database
         :param _id: The id of the user to delete
         :type _id: PositiveInt
-        :return: True if the user is deleted; otherwise False
-        :rtype: bool
+        :return: Data to confirmation info about the delete process
+        :rtype: dict[str, Any]
         """
         with self.session as session:
             try:
-                found_user: User | None = self.read_by_id(_id)
-            except DatabaseException as db_exc:
-                raise DatabaseException(str(db_exc)) from db_exc
-            if not found_user:
-                raise DatabaseException(
-                    f"User with ID: {_id} could not be deleted"
+                exists_query = (
+                    session.query(User).filter(User.id == _id).exists()
                 )
-            try:
-                session.delete(found_user)
+                if not session.query(exists_query).scalar():
+                    raise NoResultFound(f"No user found with ID: {_id}")
+                delete_query = (
+                    session.query(User).filter(User.id == _id).delete()
+                )
                 session.commit()
-            except SQLAlchemyError as sa_exc:
-                logger.error(sa_exc)
+                if delete_query == 0:
+                    raise NoResultFound(
+                        f"No user found with ID: {_id} to delete"
+                    )
+                deleted: bool = True
+                deleted_at: datetime = datetime.now()
+            except (SQLAlchemyError, NoResultFound) as e:
                 session.rollback()
-                return False
-            return True
+                logger.error(
+                    f"Failed to delete user with ID: {_id}, Error: {str(e)}"
+                )
+                raise DatabaseException(
+                    f"Could not delete user with ID: {_id}. Error: {str(e)}"
+                ) from e
+        return {"ok": deleted, "deleted_at": deleted_at}
 
 
 def get_user_repository() -> UserRepository:
