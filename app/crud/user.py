@@ -34,14 +34,14 @@ class UserRepository:
     ):
         self.session: Session = session
 
-    def read_by_id(self, _id: PositiveInt) -> User | None:
+    def read_by_id(self, _id: PositiveInt) -> User:
         """
         Retrieve a user from the database by its id
         :param _id: The id of the user
         :type _id: IdSpecification
         :return: The user with the specified id, or None if no such
             user exists
-        :rtype: Optional[User]
+        :rtype: User
         """
         with self.session as session:
             stmt: Select[Any]
@@ -54,7 +54,7 @@ class UserRepository:
                 logger.error(sa_exc)
                 logger.info("Retrieving row with id: %s", _id)
                 raise DatabaseException(str(sa_exc)) from sa_exc
-            return User(db_obj)
+            return db_obj
 
     def read_users(
         self,
