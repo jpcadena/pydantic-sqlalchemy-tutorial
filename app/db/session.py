@@ -11,7 +11,7 @@ url: str = f"{setting.SQLALCHEMY_DATABASE_URI}"
 engine: Engine = create_engine(url, pool_pre_ping=True, future=True, echo=True)
 
 
-async def get_session() -> Session:
+def get_session() -> Session:
     """
     Get an asynchronous session to the database
     :return session: Session for database connection
