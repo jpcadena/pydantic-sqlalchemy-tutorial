@@ -14,7 +14,7 @@ from sqlalchemy.exc import NoResultFound, SQLAlchemyError
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 
-from app.config.exceptions import DatabaseException
+from app.core.exceptions import DatabaseException
 from app.db.session import get_session
 from app.models.user import User
 from app.schemas.user import User as UserSchema

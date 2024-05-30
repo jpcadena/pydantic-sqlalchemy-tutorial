@@ -11,8 +11,8 @@ from fastapi.openapi.utils import get_openapi
 from fastapi.routing import APIRoute
 from pydantic_extra_types.phone_numbers import PhoneNumber
 
-from app.config.exceptions import ServiceException
 from app.config.settings import setting
+from app.core.exceptions import ServiceException
 
 
 def remove_tag_from_operation_id(tag: str, operation_id: str) -> str:
@@ -103,8 +103,8 @@ def custom_openapi(app: FastAPI) -> dict[str, Any]:
         routes=app.routes,
         servers=[
             {
-                "url": app.state.auth_settings.SERVER_URL,
-                "description": app.state.auth_settings.SERVER_DESCRIPTION,
+                "url": app.state.settings.SERVER_URL,
+                "description": app.state.settings.SERVER_DESCRIPTION,
             }
         ],
         contact=app.state.settings.CONTACT,

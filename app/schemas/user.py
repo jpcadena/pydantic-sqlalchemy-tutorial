@@ -4,7 +4,6 @@ A module for user in the app-schemas package.
 
 from datetime import date
 
-from phonenumbers import PhoneNumber
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 from pydantic.config import JsonDict
 from pydantic_extra_types.phone_numbers import (
@@ -12,7 +11,7 @@ from pydantic_extra_types.phone_numbers import (
 )
 
 from app.config.init_settings import init_setting
-from app.config.utils import validate_password, validate_phone_number
+from app.core.utils import validate_password, validate_phone_number
 
 user_example: JsonDict = {
     "example": {
@@ -28,6 +27,7 @@ user_example: JsonDict = {
 class UserBase(BaseModel):
     model_config = ConfigDict(
         json_schema_extra=user_example,
+        arbitrary_types_allowed=True,
     )
 
     username: str | None = Field(
@@ -52,7 +52,7 @@ class UserBase(BaseModel):
     birthdate: date | None = Field(
         default=None, title="Birthdate", description="Birthday of the User"
     )
-    phone_number: PhoneNumber | None = Field(
+    phone_number: PydanticPhoneNumber | None = Field(
         default=None,
         title="Phone number",
         description="Preferred telephone number of the User",

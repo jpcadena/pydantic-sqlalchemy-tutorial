@@ -11,12 +11,12 @@ from fastapi import APIRouter, Body, Depends, HTTPException, Response, status
 from fastapi.params import Path, Query
 from pydantic import NonNegativeInt, PositiveInt
 
-from app.config.exceptions import (
+from app.config.init_settings import init_setting
+from app.core.exceptions import (
     DatabaseException,
     NotFoundException,
     ServiceException,
 )
-from app.config.init_settings import init_setting
 from app.crud.user import UserRepository, get_user_repository
 from app.schemas.user import User, UserCreate, UserUpdate, UsersResponse
 

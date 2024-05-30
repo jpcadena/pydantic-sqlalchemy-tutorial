@@ -14,12 +14,14 @@ from fastapi.staticfiles import StaticFiles
 from app.api.api_v1.api import api_router
 from app.config.init_settings import init_setting
 from app.config.settings import setting
-from app.config.utils import custom_generate_unique_id, custom_openapi
+from app.core.lifecycle import lifespan
+from app.core.utils import custom_generate_unique_id, custom_openapi
 
 app: FastAPI = FastAPI(
     debug=True,
     openapi_url=f"{setting.API_V1_STR}{init_setting.OPENAPI_FILE_PATH}",
     openapi_tags=init_setting.TAGS_METADATA,
+    lifespan=lifespan,
     generate_unique_id_function=custom_generate_unique_id,
 )
 app.openapi = partial(custom_openapi, app)  # type: ignore

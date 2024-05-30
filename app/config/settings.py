@@ -35,7 +35,9 @@ class Settings(BaseSettings):
     SERVER_PORT: PositiveInt
     SERVER_RELOAD: bool
     SERVER_LOG_LEVEL: str
+    SERVER_DESCRIPTION: str
     BACKEND_CORS_ORIGINS: list[AnyHttpUrl] = []
+    SERVER_URL: AnyHttpUrl
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     def assemble_cors_origins(cls, v: str | list[str]) -> list[str] | str:
@@ -47,7 +49,6 @@ class Settings(BaseSettings):
         :return: List of Backend CORS origins to be accepted
         :rtype: Union[list[str], str]
         """
-        # pylint: disable=unused-argument,no-self-argument,invalid-name
         if isinstance(v, str) and not v.startswith("["):
             return [i.strip() for i in v.split(",")]
         if isinstance(v, list):
