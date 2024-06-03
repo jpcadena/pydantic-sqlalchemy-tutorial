@@ -74,7 +74,7 @@ sqlalchemy = "^2.0.30"
 psycopg = {extras = ["binary", "pool"], version = "^3.1.19"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.4.2"
-ruff = "^0.4.6"
+ruff = "^0.4.7"
 mypy = "^1.10.0"
 pre-commit = "^3.7.1"
 fastapi = {extras = ["all"], version = "^0.111.0"}
