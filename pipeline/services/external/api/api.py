@@ -16,7 +16,9 @@ from pipeline.config.settings import Settings
 from pipeline.core.decorators import benchmark, with_logging
 from pipeline.exceptions.exceptions import (
     APIValidationError,
+    ConnectionException,
     NoAPIResponseException,
+    RateLimitExceededException,
 )
 from pipeline.schemas.api.weather import T
 
@@ -131,6 +133,22 @@ class ApiService:
             if hasattr(model_instance, "meta") and model_instance.meta is None:
                 logger.warning("Expected pagination data missing in response")
             return model_instance
+        except requests.exceptions.HTTPError as exc:
+            if exc.response is not None and exc.response.status_code == 429:
+                raise RateLimitExceededException(
+                    "Rate limit exceeded. Please try again later."
+                ) from exc
+            raise APIValidationError(
+                f"HTTP error occurred: {exc.response.status_code}"
+            ) from exc
+        except requests.exceptions.ConnectionError as exc:
+            raise ConnectionException(
+                "A connection error occurred. Please check your network."
+            ) from exc
+        except requests.exceptions.Timeout as exc:
+            raise ConnectionException(
+                "The request timed out. Please try again later."
+            ) from exc
         except requests.exceptions.RequestException as exc:
             if exc.response is None:
                 raise NoAPIResponseException(

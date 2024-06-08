@@ -103,15 +103,17 @@ class Weather(AuditMixin, BaseWithID):
             name="weather_min_max_temp_check",
         ),
         CheckConstraint(
-            "temp_9am BETWEEN min_temp AND max_temp",
+            f"temp_9am {settings.LOWEST_TEMP} AND {settings.HIGHEST_TEMP}",
             name="weather_temp_9am_range_check",
         ),
         CheckConstraint(
-            "temp_3pm BETWEEN min_temp AND max_temp",
+            f"temp_3pm BETWEEN {settings.LOWEST_TEMP} AND"
+            f" {settings.HIGHEST_TEMP}",
             name="weather_temp_3pm_range_check",
         ),
         CheckConstraint(
-            "current_temp BETWEEN min_temp AND max_temp",
+            f"current_temp BETWEEN {settings.LOWEST_TEMP} AND"
+            f" {settings.HIGHEST_TEMP}",
             name="weather_current_temp_range_check",
         ),
     )

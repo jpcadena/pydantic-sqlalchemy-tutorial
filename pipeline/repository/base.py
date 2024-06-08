@@ -3,12 +3,12 @@ A module for base in the pipeline-repository package.
 """
 
 import logging
-from typing import Any
 
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from pipeline.core.decorators import benchmark
+from pipeline.exceptions.exceptions import DatabaseException
 from pipeline.models.base.base import U
 
 logger: logging.Logger = logging.getLogger(__name__)
@@ -28,21 +28,21 @@ class BaseRepository:
     @benchmark
     def handle_sql_exception(
         self,
-        arg0: Any,
-        exc: Any,
+        message: str,
+        exc: SQLAlchemyError,
     ) -> None:
         """
         Handle the exception raised from SQLAlchemy database operation
-        :param arg0: Any argument to add on the exception
-        :type arg0: Any
+        :param message: Custom message for the exception
+        :type message: str
         :param exc: The exception raised
-        :type exc: Any
+        :type exc: SQLAlchemyError
         :return: None
         :rtype: NoneType
         """
         self.session.rollback()
-        logger.error(f"{arg0}{exc}")
-        raise
+        logger.error(f"{message}{exc}")
+        raise DatabaseException(f"{message}{exc}")
 
     @benchmark
     def add(

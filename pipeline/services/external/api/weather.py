@@ -3,11 +3,15 @@ A module for weather API interactions in the pipeline.services.external.api
  package.
 """
 
+import logging
+
 from pydantic_extra_types.coordinate import Latitude, Longitude
 
 from pipeline.core.decorators import with_logging
 from pipeline.schemas.api.weather import APIWeather
 from pipeline.services.external.api.api import ApiService
+
+logger: logging.Logger = logging.getLogger(__name__)
 
 
 class WeatherApiService(ApiService):
