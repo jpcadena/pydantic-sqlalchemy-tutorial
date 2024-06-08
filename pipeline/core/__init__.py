@@ -1,0 +1,3 @@
+"""
+Package pipeline-core initialization.
+"""

@@ -63,23 +63,26 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pydantic = "^2.7.2"
-pydantic-core = "^2.18.3"
-pydantic-settings = "^2.2.1"
-pydantic-extra-types = "^2.7.0"
+pydantic = "^2.7.3"
+pydantic-core = "^2.18.4"
+pydantic-settings = "^2.3.1"
+pydantic-extra-types = "^2.8.0"
 email-validator = "^2.1.1"
-phonenumbers = "^8.13.37"
+phonenumbers = "^8.13.38"
 python-dotenv = "^1.0.1"
 sqlalchemy = "^2.0.30"
 psycopg = {extras = ["binary", "pool"], version = "^3.1.19"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.4.2"
-ruff = "^0.4.6"
+ruff = "^0.4.8"
 mypy = "^1.10.0"
 pre-commit = "^3.7.1"
 fastapi = {extras = ["all"], version = "^0.111.0"}
-uvicorn = "^0.30.0"
+uvicorn = "^0.30.1"
 starlette = "^0.37.2"
+requests = "^2.32.3"
+types-requests = "^2.32.0.20240602"
+urllib3 = "^2.2.1"
 
 
 [build-system]

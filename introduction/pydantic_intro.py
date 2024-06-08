@@ -5,8 +5,6 @@ It defines a User model with validation on the name attribute to ensure it
  contains both a first and last name separated by a space.
 """
 
-from typing import Optional
-
 from pydantic import BaseModel, PositiveInt, ValidationError, field_validator
 
 
@@ -16,7 +14,7 @@ class User(BaseModel):
     """
 
     name: str
-    age: Optional[PositiveInt] = None
+    age: PositiveInt | None = None
 
     @field_validator(
         "name",

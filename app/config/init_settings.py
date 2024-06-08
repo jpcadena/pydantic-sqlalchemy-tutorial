@@ -105,7 +105,7 @@ class InitSettings(BaseSettings):
             "value": {
                 "username": "username",
                 "email": "username",
-                "password": "miclave123",
+                "password": "Password123",
                 "birthdate": date(95, 12, 31),
                 "phone_number": PhoneNumber("5939876a4321"),
             },
@@ -141,7 +141,7 @@ class InitSettings(BaseSettings):
             "value": {
                 "username": "username",
                 "email": "username",
-                "password": "miclave123",
+                "password": "Password123",
                 "birthdate": date(95, 12, 31),
                 "phone_number": PhoneNumber("59398x54321"),
             },

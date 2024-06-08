@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <title> One Call API 3.0 - OpenWeatherMap</title>
+  <meta name="apple-itunes-app" content="app-id=1535923697">
+  <!-- Google tag (gtag.js) -->
+<script async="" src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/google-analytics_analytics.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-31TSX35RJT');
+</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="weather, world, Openstreetmap, forecast, Openweather, current">
+<meta name="description" content="Explore the versatile OpenWeather One Call API 3.0. Designed for easy migration from Dark Sky API, it
+includes features like current weather updates, future forecasts up to 1.5 years, and detailed historical weather data
+for 40+ years. Updated every 10 minutes, the API ensures accuracy and relevancy. It allows for 1,000 free daily API
+calls and a pay-as-you-go model for additional usage. Start using now.">
+<meta name="author" content="OpenWeatherMap.org">
+<meta name="domain" content="OpenWeatherMap.org">
+<meta name="p:domain_verify" content="34fe229eab8562dca90f4a5962ff80a9">
+<meta property="title" content="One Call API 3.0">  <link rel="stylesheet" href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">  <link rel="shortcut icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/favicon.ico">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_60x60.png" sizes="60x60" type="image/png">  <link rel="stylesheet" href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/css_002.css">
+<link rel="stylesheet" href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/css.css">  <link rel="stylesheet" href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/banner.css">
+  <link href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/36c82f1dfbae3db2dca70a82d8ded326-1717402878.css" rel="stylesheet">  <script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/d8fb6d080cb70d894318fcae14526239-1717402878"></script>  <script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/prompt.js"></script></head>
+
+<body class="body-orange" onclick="closePopUps()">
+  <link href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/smart_banner_android.css" rel="stylesheet">
+
+<div id="banner_android" class="banner_stripe">
+    <div class="banner_container">
+        <a class="smartbanner__exit" onclick="bannerClose()"></a>
+        <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/android-app-top-banner.png" class="banner_icon" alt="banner android">
+        <div>
+            <p class="smartbanner-text">OpenWeather</p>
+            <p class="smartbanner-text">OpenWeather Ltd.</p>
+            <p class="smartbanner-text">GET - on Google Play</p>
+        </div>
+    </div>
+    <a class="google_button" href="https://play.google.com/store/apps/details?id=uk.co.openweather">VIEW</a>
+</div>
+
+<script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/smart_banner_android.js"></script>  <nav id="nav-website" onclick="toggleMenu(event)">
+  <ul id="first-level-nav">
+    <li class="logo">
+      <a href="https://openweathermap.org/">
+        <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/logo_white_cropped.png" alt="logo">
+      </a>
+    </li>
+    <li id="hamburger">
+      <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_hamburger.svg" alt="icon hamburger">
+    </li>
+    <li id="desktop-menu">
+      <form role="search" action="/find" method="get">
+        <input type="text" name="q" placeholder="Weather in your city">
+        <input type="submit" class="submit">
+      </form>
+      <ul>
+        <li>
+          <a href="https://openweathermap.org/guide">Guide</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/api">API</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/weather-dashboard">Dashboard</a>
+        </li>
+        <li>
+          <a href="https://home.openweathermap.org/marketplace" target="_blank">Marketplace</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/price">Pricing</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/weathermap">Maps</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/our-initiatives">Our Initiatives</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/examples">Partners</a>
+        </li>
+        <li>
+          <a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a>
+        </li>
+        <li>
+          <a href="https://openweather.co.uk/" class="marketplace" target="_blank">For Business</a>
+        </li>
+                <li class="user-li"><a href="https://openweathermap.org/home/sign_in">Sign in</a></li>
+                <li class="with-dropdown">
+          <div id="support-dropdown">Support</div>
+          <ul class="dropdown-menu" id="support-dropdown-menu">
+            <li><a href="https://openweathermap.org/faq">FAQ</a></li>
+            <li><a href="https://openweathermap.org/appid">How to start</a></li>
+            <li><a href="https://openweathermap.org/chat">ChatBot assistant</a></li>
+            <li><a href="https://home.openweathermap.org/questions" target="_blank">Ask a question</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul id="mobile-menu">
+    <li>
+      <form role="search" action="/find" method="get">
+        <input type="text" name="q" placeholder="Weather in your city">
+        <input type="submit" class="submit">
+      </form>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/guide">Guide</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/api">API</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/weather-dashboard">Dashboard</a>
+    </li>
+    <li>
+      <a href="https://home.openweathermap.org/marketplace" target="_blank">Marketplace</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/price">Pricing</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/weathermap">Maps</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/our-initiatives">Our Initiatives</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/examples">Partners</a>
+    </li>
+    <li>
+      <a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a>
+    </li>
+    <li>
+      <a href="https://openweather.co.uk/" class="marketplace" target="_blank">For Business</a>
+    </li>
+    <li>
+      <a href="https://home.openweathermap.org/questions">Ask a question</a>
+    </li>
+        <li><a href="https://openweathermap.org/home/sign_in">Sign in</a></li>
+      </ul>
+</nav>
+<div class="nav-styles"></div>  <main class="wrapper">
+        <div class="topic">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                                    <h1 class="breadcrumb-title">One Call API 3.0</h1>
+                            </div>
+            <div class="col-sm-5">
+                <ol class="breadcrumb pull-right hidden-xs">
+                    <li><a href="https://openweathermap.org/">Home</a></li>
+                                            <li class="active"><a href="https://openweathermap.org/api">API</a></li>
+
+                                                                        <li class="breadcrumb__leaf">One Call API 3.0</li>
+                                                            </ol>
+            </div>
+        </div>
+    </div>
+</div>        <link href="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/meteo-banner.css" rel="stylesheet">
+
+<div id="meteo-banner" class="pop-up" style="display: none;">
+  <div class="pop-up-content">
+    <span class="close-btn">×</span>
+    <h2 class="text-center">OpenWeather <br>Meteorological Service</h2>
+    <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/Dan_Hart.jpeg" alt="Dan Hart" width="96" height="96">
+    <a href="https://openweather.co.uk/meteorology" class="ow-btn round btn-orange text-center" target="_blank" id="meteo-banner-button">Speak to the Chief <br>Meteorologist Dan Hart and<br> his team!</a>
+  </div>
+</div>
+
+
+<script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/meteo-banner.js"></script>    <!-- proofreading 29 June 2020 -->
+
+<div class="container" onclick="toggleSections(event)">
+   <div class="container documentation">
+      <div class="doc-container">
+         <div>
+            <nav>
+               <ul>
+                  <li><a href="#concept">Product concept</a></li>
+                  <li><a href="#start"> How to start</a></li>
+                  <li><a href="#current">Current and forecasts weather data</a>
+                     <ul>
+                        <li><a href="#how">How to make an API call</a>
+                        </li>
+                        <li><a href="#example">Example of API response</a>
+                        </li>
+                        <li><a href="#parameter">Fields in API response</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><a href="#history">Weather data for timestamp</a>
+                     <ul>
+                        <li><a href="#history-how">How to make an API call</a>
+                        </li>
+                        <li><a href="#hist_example">Example of API response</a>
+                        </li>
+                        <li><a href="#hist_parameter">Fields in API response</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a href="#history_daily_aggregation">Daily aggregation </a>
+                     <ul>
+                        <li><a href="#history_daily_aggregation_how">How to make an API call</a>
+                        </li>
+                        <li><a href="#hist_agr_example">Example of API response</a>
+                        </li>
+                        <li><a href="#hist_agr_parameter">Fields in API response</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a href="#weather_overview">Weather overview</a>
+                     <ul>
+                        <li><a href="#weather_overview_how">How to make an API call</a>
+                        </li>
+                        <li><a href="#weather_overview_example">Example of API response</a>
+                        </li>
+                        <li><a href="#weather_overview_response">Fields in API response</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a href="#other">Other features</a>
+                     <ul>
+                        <li><a href="#list1">List of weather condition codes</a></li>
+                        <li><a href="#data">Units of measurement</a></li>
+                        <li><a href="#multi">Multilingual support</a></li>
+                        <li><a href="#listsource">List of national weather alerts sources</a></li>
+                        <li><a href="#call">Call back function for JavaScript code</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#errors">API errors</a>
+                     <ul>
+                        <li><a href="#errorstructure">Structure of API errors</a></li>
+                        <li><a href="#popularerrors">Errors list</a>
+                           <ul>
+                              <li><a href="#error400">Error 400</a></li>
+                              <li><a href="#error401">Error 401</a></li>
+                              <!--<li><a href="#error403">Error 403</a></li>-->
+                              <li><a href="#error404">Error 404</a></li>
+                              <li><a href="#error429">Error 429</a></li>
+                              <li><a href="#error500">Errors '5xx'</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+         <div>
+            <section id="concept">
+               <h2>Product concept</h2>
+               <div>
+                  <p class="lead">Get essential weather data, short-term and long-term forecasts and aggregated weather
+                     data is easy with our OpenWeather <b> One Call API 3.0</b>. This product designed to ensure <a href="https://openweathermap.org/darksky-openweather-3">easy migration from the Dark Sky API</a>.</p>
+                  <p id="endpoint">One Call API 3.0 contains 4 endpoints and provides access to various data:</p>
+                  <ul>
+                     <li>
+                        <a href="#current"><b>Current weather and forecasts:</b></a>
+                        <ul>
+                           <li> minute forecast for 1 hour</li>
+                           <li> hourly forecast for 48 hours</li>
+                           <li> daily forecast for 8 days</li>
+                        </ul>
+                        and government weather alerts
+                     </li>
+                     <li><a href="#history"><b>Weather data for any timestamp</b></a> for 45 years historical archive
+                        and 4 days ahead forecast</li>
+                     <li><a href="#history_daily_aggregation"><b>Daily aggregation</b></a> of weather data for 45 years
+                        archive and 1.5 years ahead forecast</li>
+                     <li><a href="#weather_overview"><b>Weather overview</b></a> with a human-readable weather summary
+                        for today and tomorrow's forecast, utilizing OpenWeather AI technologies</li>
+                  </ul>
+
+                  <p> One Call API 3.0 is based on the proprietary <a href="https://openweather.co.uk/technology">OpenWeather Model</a> and is updated every 10
+                     minutes. Thus, in order to receive the most accurate and up-to-date weather data, we recommend you
+                     request One Call API 3.0 every 10 minutes.</p>
+                  <div class="info-board info-board-orange">
+                     <p>Please note, that One Call API 3.0 is included in the <a href="https://openweathermap.org/price">"One Call by Call"</a> subscription <b>only</b>. This
+                        separate subscription includes 1,000 calls/day for free and allows you to pay only for the
+                        number of API calls made to this product. Please note, that you do not need to subscribe to any
+                        other OpenWeather subscription plans to get access to the One Call API 3.0. Please find more
+                        details on the <a href="https://openweathermap.org/price">pricing page</a> and <a href="https://openweathermap.org/faq#onecall">FAQ</a>.</p>
+                  </div>
+               </div>
+            </section>
+            <section id="start">
+               <h2>How to start</h2>
+               <ol>
+                  <li><a href="https://home.openweathermap.org/users/sign_up" target="_blank">Sign up</a> to OpenWeather
+                     service in case you haven't got your <a href="https://home.openweathermap.org/api_keys" target="_blank">OpenWeather API key</a> yet.</li>
+                  <li>Follow the <a href="https://openweathermap.org/price#onecall">pricing page</a> to learn details about the price.
+                     <div class="info-board info-board-orange">
+                        <p>One Call API 3.0 is included in the separate subscription only and allows you to pay only for
+                           the number of API calls made to this product. Please find more details on the <a href="https://openweathermap.org/price#onecall">pricing page</a>.</p>
+                     </div>
+                  </li>
+                  <li>Once you subscribe to One call API 3.0, 2000 API calls per day to this product are set up by
+                     default. If you want to change this limit, please go to the <a href="https://home.openweathermap.org/subscriptions" target="_blank">"Billing plans" tab </a> in
+                     your Personal account to update standard settings. You can find more information on the <a href="https://openweathermap.org/faq#onecall">FAQ.</a> </li>
+                  <li>Select the desired type of data (<a href="#current">Current and forecasts weather data</a>, <a href="#history"> Weather data for timestamp</a>, <a href="#history_daily_aggregation">Daily
+                        aggregation</a>, <a href="#weather_overview">Weather overview</a>) and make an API call
+                     according to relevant tech documentation section, remembering to add your key to each call.</li>
+               </ol>
+            </section>
+
+            <section id="current">
+               <h2>Current and forecasts weather data</h2>
+               <p>To get access to current weather, minute forecast for 1 hour, hourly forecast for 48 hours, daily
+                  forecast for 8 days and government weather alerts, please use this section of the documentation. </p>
+               <p>If you are interested in other functionality on One Call API 3.0, please check <a href="https://openweathermap.org/api/one-call-3#concept">Product concept</a>
+                  to follow the right section.
+               </p>
+               <section id="how">
+                  <h3>How to make an API call</h3>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;exclude=<span class="query_param"><span class="query_param">{part}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lat</code></td>
+                        <td class="sub">required</td>
+                        <td>Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and
+                           zip-codes to geo coordinates and the other way around, please use our <a href="https://openweathermap.org/api/geocoding-api">Geocoding API</a></td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lon</code></td>
+                        <td class="sub">required</td>
+                        <td>Longitude, decimal (-180; 180). If you need the geocoder to automatic convert city names and
+                           zip-codes to geo coordinates and the other way around, please use our <a href="https://openweathermap.org/api/geocoding-api">Geocoding API</a></td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">appid</code></td>
+                        <td class="sub">required</td>
+                        <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                     </tr>
+                     <tr>
+                        <td><code>exclude</code></td>
+                        <td class="sub">optional</td>
+                        <td>By using this parameter you can exclude some parts of the weather data from the API
+                           response. It should be a comma-delimited list (without spaces).
+                           <p>Available values:</p>
+                           <ul class="docs-list">
+                              <li><code>current</code></li>
+                              <li><code>minutely</code></li>
+                              <li><code>hourly</code></li>
+                              <li><code>daily</code></li>
+                              <li><code>alerts</code></li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><code>units</code></td>
+                        <td class="sub">optional</td>
+                        <td>Units of measurement. <code>standard</code>, <code>metric</code> and <code>imperial</code>
+                           units are available. If you do not use the <code>units</code> parameter,
+                           <code>standard</code> units will be applied by default. <a href="#data">Learn more</a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><code>lang</code></td>
+                        <td><span class="sub">optional</span></td>
+                        <td>You can use the <code>lang</code> parameter to get the output in your language. <a href="#multi">Learn more</a></td>
+                     </tr>
+                  </tbody></table>
+                  <p class="sub-header">Example of API call</p>
+                  <p>Before making an API call, please note, that One Call 3.0 is included in the "One Call by Call"
+                     subscription <b>only</b>. <a href="https://openweathermap.org/price">Learn more</a></p>
+                  <p>If you you want to exclude some parts of the weather data from the API response please add
+                     <code>exclude</code> parameter to the API call like in the example below:
+                  </p>
+                  <div class="api example">
+                     <code>https://api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param">33.44</span>&amp;lon=<span class="query_param">-94.04</span>&amp;exclude=<span class="query_param">hourly,daily</span>&amp;appid=<a href="https://home.openweathermap.org/api_keys"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <p>If you do not need to exclude any of the weather data from the API response please use API call
+                     like in the example below:</p>
+                  <div class="api example">
+                     <code>https://api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param">33.44</span>&amp;lon=<span class="query_param">-94.04</span>&amp;appid=<a href="https://home.openweathermap.org/api_keys"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+               </section>
+               <section id="example">
+                  <p class="sub-header">Example of API response</p>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of API response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                <code class="json hljs">
+{
+   <span class="hljs-attr">"lat"</span>:<span class="hljs-number">33.44</span>,
+   <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-94.04</span>,
+   <span class="hljs-attr">"timezone"</span>:<span class="hljs-string">"America/Chicago"</span>,
+   <span class="hljs-attr">"timezone_offset"</span>:<span class="hljs-number">-18000</span>,
+   <span class="hljs-attr">"current"</span>:{
+      <span class="hljs-attr">"dt"</span>:<span class="hljs-number">1684929490</span>,
+      <span class="hljs-attr">"sunrise"</span>:<span class="hljs-number">1684926645</span>,
+      <span class="hljs-attr">"sunset"</span>:<span class="hljs-number">1684977332</span>,
+      <span class="hljs-attr">"temp"</span>:<span class="hljs-number">292.55</span>,
+      <span class="hljs-attr">"feels_like"</span>:<span class="hljs-number">292.87</span>,
+      <span class="hljs-attr">"pressure"</span>:<span class="hljs-number">1014</span>,
+      <span class="hljs-attr">"humidity"</span>:<span class="hljs-number">89</span>,
+      <span class="hljs-attr">"dew_point"</span>:<span class="hljs-number">290.69</span>,
+      <span class="hljs-attr">"uvi"</span>:<span class="hljs-number">0.16</span>,
+      <span class="hljs-attr">"clouds"</span>:<span class="hljs-number">53</span>,
+      <span class="hljs-attr">"visibility"</span>:<span class="hljs-number">10000</span>,
+      <span class="hljs-attr">"wind_speed"</span>:<span class="hljs-number">3.13</span>,
+      <span class="hljs-attr">"wind_deg"</span>:<span class="hljs-number">93</span>,
+      <span class="hljs-attr">"wind_gust"</span>:<span class="hljs-number">6.71</span>,
+      <span class="hljs-attr">"weather"</span>:[
+         {
+            <span class="hljs-attr">"id"</span>:<span class="hljs-number">803</span>,
+            <span class="hljs-attr">"main"</span>:<span class="hljs-string">"Clouds"</span>,
+            <span class="hljs-attr">"description"</span>:<span class="hljs-string">"broken clouds"</span>,
+            <span class="hljs-attr">"icon"</span>:<span class="hljs-string">"04d"</span>
+         }
+      ]
+   },
+   <span class="hljs-attr">"minutely"</span>:[
+      {
+         <span class="hljs-attr">"dt"</span>:<span class="hljs-number">1684929540</span>,
+         <span class="hljs-attr">"precipitation"</span>:<span class="hljs-number">0</span>
+      },
+      ...
+   ],
+   <span class="hljs-attr">"hourly"</span>:[
+      {
+         <span class="hljs-attr">"dt"</span>:<span class="hljs-number">1684926000</span>,
+         <span class="hljs-attr">"temp"</span>:<span class="hljs-number">292.01</span>,
+         <span class="hljs-attr">"feels_like"</span>:<span class="hljs-number">292.33</span>,
+         <span class="hljs-attr">"pressure"</span>:<span class="hljs-number">1014</span>,
+         <span class="hljs-attr">"humidity"</span>:<span class="hljs-number">91</span>,
+         <span class="hljs-attr">"dew_point"</span>:<span class="hljs-number">290.51</span>,
+         <span class="hljs-attr">"uvi"</span>:<span class="hljs-number">0</span>,
+         <span class="hljs-attr">"clouds"</span>:<span class="hljs-number">54</span>,
+         <span class="hljs-attr">"visibility"</span>:<span class="hljs-number">10000</span>,
+         <span class="hljs-attr">"wind_speed"</span>:<span class="hljs-number">2.58</span>,
+         <span class="hljs-attr">"wind_deg"</span>:<span class="hljs-number">86</span>,
+         <span class="hljs-attr">"wind_gust"</span>:<span class="hljs-number">5.88</span>,
+         <span class="hljs-attr">"weather"</span>:[
+            {
+               <span class="hljs-attr">"id"</span>:<span class="hljs-number">803</span>,
+               <span class="hljs-attr">"main"</span>:<span class="hljs-string">"Clouds"</span>,
+               <span class="hljs-attr">"description"</span>:<span class="hljs-string">"broken clouds"</span>,
+               <span class="hljs-attr">"icon"</span>:<span class="hljs-string">"04n"</span>
+            }
+         ],
+         <span class="hljs-attr">"pop"</span>:<span class="hljs-number">0.15</span>
+      },
+      ...
+   ],
+   <span class="hljs-attr">"daily"</span>:[
+      {
+         <span class="hljs-attr">"dt"</span>:<span class="hljs-number">1684951200</span>,
+         <span class="hljs-attr">"sunrise"</span>:<span class="hljs-number">1684926645</span>,
+         <span class="hljs-attr">"sunset"</span>:<span class="hljs-number">1684977332</span>,
+         <span class="hljs-attr">"moonrise"</span>:<span class="hljs-number">1684941060</span>,
+         <span class="hljs-attr">"moonset"</span>:<span class="hljs-number">1684905480</span>,
+         <span class="hljs-attr">"moon_phase"</span>:<span class="hljs-number">0.16</span>,
+         <span class="hljs-attr">"summary"</span>:<span class="hljs-string">"Expect a day of partly cloudy with rain"</span>,
+         <span class="hljs-attr">"temp"</span>:{
+            <span class="hljs-attr">"day"</span>:<span class="hljs-number">299.03</span>,
+            <span class="hljs-attr">"min"</span>:<span class="hljs-number">290.69</span>,
+            <span class="hljs-attr">"max"</span>:<span class="hljs-number">300.35</span>,
+            <span class="hljs-attr">"night"</span>:<span class="hljs-number">291.45</span>,
+            <span class="hljs-attr">"eve"</span>:<span class="hljs-number">297.51</span>,
+            <span class="hljs-attr">"morn"</span>:<span class="hljs-number">292.55</span>
+         },
+         <span class="hljs-attr">"feels_like"</span>:{
+            <span class="hljs-attr">"day"</span>:<span class="hljs-number">299.21</span>,
+            <span class="hljs-attr">"night"</span>:<span class="hljs-number">291.37</span>,
+            <span class="hljs-attr">"eve"</span>:<span class="hljs-number">297.86</span>,
+            <span class="hljs-attr">"morn"</span>:<span class="hljs-number">292.87</span>
+         },
+         <span class="hljs-attr">"pressure"</span>:<span class="hljs-number">1016</span>,
+         <span class="hljs-attr">"humidity"</span>:<span class="hljs-number">59</span>,
+         <span class="hljs-attr">"dew_point"</span>:<span class="hljs-number">290.48</span>,
+         <span class="hljs-attr">"wind_speed"</span>:<span class="hljs-number">3.98</span>,
+         <span class="hljs-attr">"wind_deg"</span>:<span class="hljs-number">76</span>,
+         <span class="hljs-attr">"wind_gust"</span>:<span class="hljs-number">8.92</span>,
+         <span class="hljs-attr">"weather"</span>:[
+            {
+               <span class="hljs-attr">"id"</span>:<span class="hljs-number">500</span>,
+               <span class="hljs-attr">"main"</span>:<span class="hljs-string">"Rain"</span>,
+               <span class="hljs-attr">"description"</span>:<span class="hljs-string">"light rain"</span>,
+               <span class="hljs-attr">"icon"</span>:<span class="hljs-string">"10d"</span>
+            }
+         ],
+         <span class="hljs-attr">"clouds"</span>:<span class="hljs-number">92</span>,
+         <span class="hljs-attr">"pop"</span>:<span class="hljs-number">0.47</span>,
+         <span class="hljs-attr">"rain"</span>:<span class="hljs-number">0.15</span>,
+         <span class="hljs-attr">"uvi"</span>:<span class="hljs-number">9.23</span>
+      },
+      ...
+   ],
+    <span class="hljs-attr">"alerts"</span>: [
+    {
+      <span class="hljs-attr">"sender_name"</span>: <span class="hljs-string">"NWS Philadelphia - Mount Holly (New Jersey, Delaware, Southeastern Pennsylvania)"</span>,
+      <span class="hljs-attr">"event"</span>: <span class="hljs-string">"Small Craft Advisory"</span>,
+      <span class="hljs-attr">"start"</span>: <span class="hljs-number">1684952747</span>,
+      <span class="hljs-attr">"end"</span>: <span class="hljs-number">1684988747</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"...SMALL CRAFT ADVISORY REMAINS IN EFFECT FROM 5 PM THIS\nAFTERNOON TO 3 AM EST FRIDAY...\n* WHAT...North winds 15 to 20 kt with gusts up to 25 kt and seas\n3 to 5 ft expected.\n* WHERE...Coastal waters from Little Egg Inlet to Great Egg\nInlet NJ out 20 nm, Coastal waters from Great Egg Inlet to\nCape May NJ out 20 nm and Coastal waters from Manasquan Inlet\nto Little Egg Inlet NJ out 20 nm.\n* WHEN...From 5 PM this afternoon to 3 AM EST Friday.\n* IMPACTS...Conditions will be hazardous to small craft."</span>,
+      <span class="hljs-attr">"tags"</span>: [
+
+      ]
+    },
+    ...
+  ]
+                </code>
+              </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="parameter">
+                  <p class="sub-header">Fields in API response</p>
+                  <div class="info-board info-board-orange">
+                     If you do not see some of the parameters in your API response it means that these weather phenomena
+                     are just not happened for the time of measurement for the city or location chosen. Only really
+                     measured or calculated data is displayed in API response.
+                  </div>
+                  <ul class="docs-list">
+                     <li><code>lat</code> Latitude of the location, decimal (−90; 90)
+                     </li>
+                     <li><code>lon</code> Longitude of the location, decimal (-180; 180)
+                     </li>
+                     <li><code>timezone</code> Timezone name for the requested location
+                     </li>
+                     <li><code>timezone_offset</code> Shift in seconds from UTC
+                     </li>
+                     <li><code>current</code> <b>Current weather data API response</b>
+
+                        <ul>
+                           <li><code>current.dt</code> Current time, Unix, UTC</li>
+                           <li><code>current.sunrise</code> Sunrise time, Unix, UTC. For polar areas in midnight sun and
+                              polar night periods this parameter is not returned in the response</li>
+                           <li><code>current.sunset</code> Sunset time, Unix, UTC. For polar areas in midnight sun and
+                              polar night periods this parameter is not returned in the response</li>
+                           <li><code>current.temp</code> Temperature. Units - default: kelvin, metric: Celsius,
+                              imperial:
+                              Fahrenheit. <a href="#data">How to change units used</a></li>
+                           <li><code>current.feels_like</code> Temperature. This temperature parameter accounts for the
+                              human perception of weather. Units – default: kelvin, metric: Celsius, imperial:
+                              Fahrenheit.
+                           </li>
+                           <li><code>current.pressure</code> Atmospheric pressure on the sea level, hPa</li>
+                           <li><code>current.humidity</code> Humidity, %</li>
+                           <li><code>current.dew_point</code> Atmospheric temperature (varying according to pressure and
+                              humidity) below which water droplets begin to condense and dew can form. Units – default:
+                              kelvin, metric: Celsius, imperial: Fahrenheit</li>
+                           <li><code>current.clouds</code> Cloudiness, %</li>
+                           <li><code>current.uvi</code> Current UV index. </li>
+                           <li><code>current.visibility</code> Average visibility, metres. The maximum value of the
+                              visibility is 10 km</li>
+                           <li><code>current.wind_speed</code> Wind speed. Wind speed. Units – default: metre/sec,
+                              metric:
+                              metre/sec, imperial: miles/hour. <a href="#data">How to change units used</a></li>
+                           <li><code>current.wind_gust</code> <span class="sub">(where available)</span> Wind gust.
+                              Units –
+                              default: metre/sec, metric: metre/sec, imperial: miles/hour. <a href="#data">How to change
+                                 units used</a></li>
+                           <li><code>current.wind_deg</code> Wind direction, degrees (meteorological)</li>
+                           <li><code>current.rain</code>
+                              <ul>
+                                 <li><code>current.rain.1h</code> <span class="sub">(where available)</span>
+                                    Precipitation,
+                                    mm/h. Please note that only mm/h as units of measurement are available for this
+                                    parameter
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><code>current.snow</code>
+                              <ul>
+                                 <li><code>current.snow.1h</code> <span class="sub">(where available)</span>
+                                    Precipitation,
+                                    mm/h. Please note that only mm/h as units of measurement are available for this
+                                    parameter
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <code>current.weather</code>
+                              <ul>
+                                 <li><code>current.weather.id</code> <a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">Weather condition id</a>
+                                 </li>
+                                 <li><code>current.weather.main</code> Group of weather parameters (Rain, Snow etc.)
+                                 </li>
+                                 <li><code>current.weather.description</code> Weather condition within the group (<a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">full list of weather
+                                       conditions</a>).
+                                    Get the output in <a href="#multi" target="_blank">your language</a>
+                                 </li>
+                                 <li><code>current.weather.icon</code> Weather icon id. <a href="https://openweathermap.org/weather-conditions#How-to-get-icon-URL" target="_blank">How to get
+                                       icons</a>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><code>minutely</code> <b>Minute forecast weather data API response</b>
+                        <ul>
+                           <li><code>minutely.dt</code> Time of the forecasted data, unix, UTC</li>
+                           <li><code>minutely.precipitation</code> Precipitation, mm/h. Please note that only mm/h as
+                              units
+                              of measurement are available for this parameter</li>
+                        </ul>
+                     </li>
+                     <li><code>hourly</code> <b>Hourly forecast weather data API response</b>
+                        <ul>
+                           <li><code>hourly.dt</code> Time of the forecasted data, Unix, UTC</li>
+                           <li><code>hourly.temp</code> Temperature. Units – default: kelvin, metric: Celsius, imperial:
+                              Fahrenheit. <a href="#data">How to change units used</a></li>
+                           <li><code>hourly.feels_like</code> Temperature. This accounts for the human perception of
+                              weather. Units – default: kelvin, metric: Celsius, imperial: Fahrenheit. </li>
+                           <li><code>hourly.pressure</code> Atmospheric pressure on the sea level, hPa</li>
+                           <li><code>hourly.humidity</code> Humidity, %</li>
+                           <li><code>hourly.dew_point</code> Atmospheric temperature (varying according to pressure and
+                              humidity) below which water droplets begin to condense and dew can form. Units – default:
+                              kelvin, metric: Celsius, imperial: Fahrenheit.</li>
+                           <li><code>hourly.uvi</code> UV index</li>
+                           <li><code>hourly.clouds</code> Cloudiness, %</li>
+                           <li><code>hourly.visibility</code> Average visibility, metres. The maximum value of the
+                              visibility is 10 km</li>
+                           <li><code>hourly.wind_speed</code> Wind speed. Units – default: metre/sec, metric: metre/sec,
+                              imperial: miles/hour.<a href="#data">How to change units used</a></li>
+                           <li><code>hourly.wind_gust</code> <span class="sub">(where available)</span> Wind gust. Units
+                              –
+                              default: metre/sec, metric: metre/sec, imperial: miles/hour. <a href="#data">How to change
+                                 units used</a></li>
+                           <li><code>hourly.wind_deg</code> Wind direction, degrees (meteorological)</li>
+                           <li><code>hourly.pop</code> Probability of precipitation. The values of the parameter vary
+                              between 0 and 1, where 0 is equal to 0%, 1 is equal to 100%</li>
+                           <li><code>hourly.rain</code>
+                              <ul>
+                                 <li><code>hourly.rain.1h</code> <span class="sub">(where available)</span>
+                                    Precipitation,
+                                    mm/h. Please note that only mm/h as units of measurement are available for this
+                                    parameter
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><code>hourly.snow</code>
+                              <ul>
+                                 <li><code>hourly.snow.1h</code> <span class="sub">(where available)</span>
+                                    Precipitation,
+                                    mm/h. Please note that only mm/h as units of measurement are available for this
+                                    parameter
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <code>hourly.weather</code>
+                              <ul>
+                                 <li><code>hourly.weather.id</code> <a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">Weather condition id</a>
+                                 </li>
+                                 <li><code>hourly.weather.main</code> Group of weather parameters (Rain, Snow etc.)</li>
+                                 <li><code>hourly.weather.description</code> Weather condition within the group (<a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">full list of weather
+                                       conditions</a>).
+                                    Get the output in <a href="#multi" target="_blank">your language</a>
+                                 </li><li><code>hourly.weather.icon</code> Weather icon id. <a href="https://openweathermap.org/weather-conditions#How-to-get-icon-URL" target="_blank">How to get
+                                       icons</a>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <code>daily</code> <b>Daily forecast weather data API response</b>
+                        <ul>
+                           <li><code>daily.dt</code> Time of the forecasted data, Unix, UTC</li>
+                           <li><code>daily.sunrise</code> Sunrise time, Unix, UTC. For polar areas in midnight sun and
+                              polar night periods this parameter is not returned in the response</li>
+                           <li><code>daily.sunset</code> Sunset time, Unix, UTC. For polar areas in midnight sun and
+                              polar night periods this parameter is not returned in the response</li>
+                           <li><code>daily.moonrise</code> The time of when the moon rises for this day, Unix, UTC</li>
+                           <li><code>daily.moonset</code> The time of when the moon sets for this day, Unix, UTC</li>
+                           <li><code>daily.moon_phase</code> Moon phase. <code>0</code> and <code>1</code> are 'new
+                              moon', <code>0.25</code> is 'first quarter moon', <code>0.5</code> is 'full moon' and
+                              <code>0.75</code> is 'last quarter moon'.
+                              The periods in between are called 'waxing crescent', 'waxing gibbous', 'waning gibbous',
+                              and 'waning crescent', respectively. Moon phase calculation algorithm: if the moon phase
+                              values between the start of the day and the end of the day have a round value (0, 0.25,
+                              0.5, 0.75, 1.0), then this round value is taken, otherwise the average of moon phases for
+                              the start of the day and the end of the day is taken
+                           </li>
+                           <li><code>summary</code>Human-readable description of the weather conditions for the day</li>
+                           <li><code>daily.temp</code> Units – default: kelvin, metric: Celsius, imperial: Fahrenheit.
+                              <a href="#data">How to change units used</a>
+
+                              <ul>
+                                 <li><code>daily.temp.morn</code> Morning temperature.</li>
+                                 <li><code>daily.temp.day</code> Day temperature.</li>
+                                 <li><code>daily.temp.eve</code> Evening temperature.</li>
+                                 <li><code>daily.temp.night</code> Night temperature.</li>
+                                 <li><code>daily.temp.min</code> Min daily temperature.</li>
+                                 <li><code>daily.temp.max</code> Max daily temperature.</li>
+                              </ul>
+                           </li>
+                           <li>
+                              <code>daily.feels_like</code> This accounts for the human perception of weather. Units –
+                              default: kelvin, metric: Celsius, imperial: Fahrenheit. <a href="#data">How to change
+                                 units used</a>
+                              <ul>
+                                 <li><code>daily.feels_like.morn</code> Morning temperature.</li>
+                                 <li><code>daily.feels_like.day</code> Day temperature.</li>
+                                 <li><code>daily.feels_like.eve</code> Evening temperature.</li>
+                                 <li><code>daily.feels_like.night</code> Night temperature. </li>
+                              </ul>
+                           </li>
+                           <li><code>daily.pressure</code> Atmospheric pressure on the sea level, hPa</li>
+                           <li><code>daily.humidity</code> Humidity, %</li>
+                           <li><code>daily.dew_point</code> Atmospheric temperature (varying according to pressure and
+                              humidity) below which water droplets begin to condense and dew can form. Units – default:
+                              kelvin, metric: Celsius, imperial: Fahrenheit.</li>
+                           <li><code>daily.wind_speed</code> Wind speed. Units – default: metre/sec, metric: metre/sec,
+                              imperial: miles/hour. <a href="#data">How to change units used</a></li>
+                           <li><code>daily.wind_gust</code> <span class="sub">(where available)</span> Wind gust. Units
+                              – default: metre/sec, metric: metre/sec, imperial: miles/hour. <a href="#data">How to
+                                 change units used</a></li>
+                           <li><code>daily.wind_deg</code> Wind direction, degrees (meteorological)</li>
+                           <li><code>daily.clouds</code> Cloudiness, %</li>
+                           <li><code>daily.uvi</code> The maximum value of UV index for the day</li>
+                           <!-- <li><code>daily.visibility</code> Average visibility, metres</li> -->
+                           <li><code>daily.pop</code> Probability of precipitation. The values of the parameter vary
+                              between 0 and 1, where 0 is equal to 0%, 1 is equal to 100%</li>
+                           <li><code>daily.rain</code> <span class="sub">(where available)</span> Precipitation volume,
+                              mm. Please note that only mm as units of measurement are available for this parameter</li>
+                           <li><code>daily.snow</code> <span class="sub">(where available)</span> Snow volume, mm.
+                              Please note that only mm as units of measurement are available for this parameter</li>
+                           <li><code>daily.weather</code>
+                              <ul>
+                                 <li><code>daily.weather.id</code> <a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">Weather condition id</a>
+                                 </li>
+                                 <li><code>daily.weather.main</code> Group of weather parameters (Rain, Snow etc.)</li>
+                                 <li><code>daily.weather.description</code> Weather condition within the group (<a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">full list of weather
+                                       conditions</a>).
+                                    Get the output in <a href="#multi" target="_blank">your language</a>
+                                 </li>
+                                 <li><code>daily.weather.icon</code> Weather icon id. <a href="https://openweathermap.org/weather-conditions#How-to-get-icon-URL" target="_blank">How to get
+                                       icons</a>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <code>alerts</code> <b>National weather alerts data from major national weather warning
+                           systems</b>
+                        <ul>
+                           <li><code>alerts.sender_name</code> Name of the alert source. Please read here the <a href="#listsource">full list of alert sources</a></li>
+                           <li><code>alerts.event</code> Alert event name</li>
+                           <li><code>alerts.start</code> Date and time of the start of the alert, Unix, UTC</li>
+                           <li><code>alerts.end</code> Date and time of the end of the alert, Unix, UTC</li>
+                           <li><code>alerts.description</code> Description of the alert</li>
+                           <li><code>alerts.tags</code> Type of severe weather</li>
+                        </ul>
+                     </li>
+                  </ul>
+
+                  <div class="info-board info-board-orange">
+                     National weather alerts are provided in English by default.<br>
+                     Please note that some agencies provide the alert’s description only in a local language.
+                  </div>
+               </section>
+            </section>
+            <section id="history">
+               <h2>Weather data for timestamp</h2>
+               <p>To learn about how get access to weather data for any timestamp from 1st January 1979 till 4 days
+                  ahead forecast, please use this section of the documentation.</p>
+               <p>If you are interested in other functionality on One Call API 3.0, please check <a href="https://openweathermap.org/api/one-call-3#concept">Product concept</a>
+                  to follow the right section.
+               </p>
+               <section id="history-how">
+                  <h3>How to make an API call</h3>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;dt=<span class="query_param"><span class="query_param">{time}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lat</code></td>
+                        <td class="sub">required</td>
+                        <td>Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and
+                           zip-codes to geo coordinates and the other way around, please use our <a href="https://openweathermap.org/api/geocoding-api">Geocoding API</a></td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lon</code></td>
+                        <td class="sub">required</td>
+                        <td>Longitude, decimal (-180; 180). If you need the geocoder to automatic convert city names and
+                           zip-codes to geo coordinates and the other way around, please use our <a href="https://openweathermap.org/api/geocoding-api">Geocoding API</a></td>
+                     </tr>
+                     <tr>
+                        <td><code>dt</code></td>
+                        <td class="sub">required</td>
+                        <td>Timestamp (Unix time, UTC time zone), e.g. dt=1586468027. Data is available <b>from January
+                              1st, 1979 till 4 days ahead </b></td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">appid</code></td>
+                        <td class="sub">required</td>
+                        <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                     </tr>
+                     <tr>
+                        <td><code>units</code></td>
+                        <td class="sub">optional</td>
+                        <td>Units of measurement. <code>standard</code>, <code>metric</code> and <code>imperial</code>
+                           units are available. If you do not use the <code>units</code> parameter,
+                           <code>standard</code> units will be applied by default. <a href="#data">Learn more</a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><code>lang</code></td>
+                        <td><span class="sub">optional</span></td>
+                        <td>You can use the <code>lang</code> parameter to get the output in your language. <a href="#multi">Learn more</a></td>
+                     </tr>
+                  </tbody></table>
+                  <div class="info-board info-board-orange">
+                     Please note that the one API response contains weather data for only one specified timestamp.
+                  </div>
+                  <p class="sub-header">Example of API call</p>
+                  <p>Before making an API call, please note, that One Call 3.0 is included in the "One Call by Call"
+                     subscription <b>only</b>. <a href="https://openweathermap.org/price">Learn more</a></p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=<span class="query_param">39.099724</span>&amp;lon=<span class="query_param">-94.578331</span>&amp;dt=<span class="query_param">1643803200</span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+               </section>
+               <section id="hist_example">
+                  <p class="sub-header">Example of API response</p>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of API response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                   <code class="json hljs">
+  {
+  <span class="hljs-attr">"lat"</span>: <span class="hljs-number">52.2297</span>,
+  <span class="hljs-attr">"lon"</span>: <span class="hljs-number">21.0122</span>,
+  <span class="hljs-attr">"timezone"</span>: <span class="hljs-string">"Europe/Warsaw"</span>,
+  <span class="hljs-attr">"timezone_offset"</span>: <span class="hljs-number">3600</span>,
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1645888976</span>,
+      <span class="hljs-attr">"sunrise"</span>: <span class="hljs-number">1645853361</span>,
+      <span class="hljs-attr">"sunset"</span>: <span class="hljs-number">1645891727</span>,
+      <span class="hljs-attr">"temp"</span>: <span class="hljs-number">279.13</span>,
+      <span class="hljs-attr">"feels_like"</span>: <span class="hljs-number">276.44</span>,
+      <span class="hljs-attr">"pressure"</span>: <span class="hljs-number">1029</span>,
+      <span class="hljs-attr">"humidity"</span>: <span class="hljs-number">64</span>,
+      <span class="hljs-attr">"dew_point"</span>: <span class="hljs-number">272.88</span>,
+      <span class="hljs-attr">"uvi"</span>: <span class="hljs-number">0.06</span>,
+      <span class="hljs-attr">"clouds"</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">"visibility"</span>: <span class="hljs-number">10000</span>,
+      <span class="hljs-attr">"wind_speed"</span>: <span class="hljs-number">3.6</span>,
+      <span class="hljs-attr">"wind_deg"</span>: <span class="hljs-number">340</span>,
+      <span class="hljs-attr">"weather"</span>: [
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">800</span>,
+          <span class="hljs-attr">"main"</span>: <span class="hljs-string">"Clear"</span>,
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"clear sky"</span>,
+          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"01d"</span>
+        }
+      ]
+    }
+  ]
+}
+                   </code>
+                 </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="hist_parameter">
+                  <p class="sub-header">Fields in API response</p>
+                  <div class="info-board info-board-orange">
+                     If you do not see some of the parameters in your API response it means that these weather phenomena
+                     are just not happened for the time of measurement for the city or location chosen. Only really
+                     measured or calculated data is displayed in API response.
+                  </div>
+                  <ul class="docs-list">
+                     <li><code>lat</code> Latitude of the location, decimal (−90; 90)
+                     </li>
+                     <li><code>lon</code> Longitude of the location, decimal (-180; 180)
+                     </li>
+                     <li><code>timezone</code> Timezone name for the requested location
+                     </li>
+                     <li><code>timezone_offset</code> Shift in seconds from UTC
+                     </li>
+                     <li><code>data</code>
+
+                        <ul>
+                           <li><code>data.dt</code> Requested time, Unix, UTC</li>
+                           <li><code>data.sunrise</code> Sunrise time, Unix, UTC. For polar areas in midnight sun and
+                              polar
+                              night periods this parameter is not returned in the response</li>
+                           <li><code>data.sunset</code> Sunset time, Unix, UTC. For polar areas in midnight sun and
+                              polar
+                              night periods this parameter is not returned in the response</li>
+                           <li><code>data.temp</code> Temperature. Units – default: kelvin, metric: Celsius, imperial:
+                              Fahrenheit. <a href="#data">How to change units used</a></li>
+                           <li><code>data.feels_like</code> Temperature. This accounts for the human perception of
+                              weather.
+                              Units – default: kelvin, metric: Celsius, imperial: Fahrenheit. </li>
+                           <li><code>data.pressure</code> Atmospheric pressure on the sea level, hPa</li>
+                           <li><code>data.humidity</code> Humidity, %</li>
+                           <li><code>data.dew_point</code> Atmospheric temperature (varying according to pressure and
+                              humidity) below which water droplets begin to condense and dew can form. Units – default:
+                              kelvin, metric: Celsius, imperial: Fahrenheit.</li>
+                           <li><code>data.clouds</code> Cloudiness, %</li>
+                           <li><code>data.uvi</code> UV index. Please pay attention that historical UV index data
+                              available
+                              only for 5 days back. If you would like to get historical UVI index data starting from
+                              20th
+                              September 2020 please <a href="mailto:info@openweathermap.org">contact us</a> </li>
+                           <li><code>data.visibility</code> Average visibility, metres. The maximum value of the
+                              visibility
+                              is 10 km</li>
+                           <li><code>data.wind_speed</code> Wind speed. Units – default: metre/sec, metric: metre/sec,
+                              imperial: miles/hour. <a href="#data">How to change units used</a></li>
+                           <li><code>data.wind_gust</code> <span class="sub">(where available)</span> Wind gust. Wind
+                              speed. Units – default: metre/sec, metric: metre/sec, imperial: miles/hour. <a href="#data">How to change units used</a></li>
+                           <li><code>data.wind_deg</code> Wind direction, degrees (meteorological)</li>
+                           <li><code>data.weather</code>
+                              <ul>
+                                 <li><code>data.weather.id</code> <a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">Weather condition id</a>
+                                 </li>
+                                 <li><code>data.weather.main</code> Group of weather parameters (Rain, Snow etc.)</li>
+                                 <li><code>data.weather.description</code> Weather condition within the group (<a href="https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2">full list of weather
+                                       conditions</a>).
+                                    Get the output in <a href="#multi" target="_blank">your language</a>
+                                 </li>
+                                 <li><code>data.weather.icon</code> Weather icon id. <a href="https://openweathermap.org/weather-conditions#How-to-get-icon-URL" target="_blank">How to get
+                                       icons</a>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><code>data.rain</code> <span class="sub">(where available)</span>
+                              <ul>
+                                 <li><code>1h</code> Precipitation, mm/h. Please note that only mm/h as units of
+                                    measurement
+                                    are available for this parameter</li>
+                              </ul>
+                           </li>
+                           <li><code>data.snow</code><span class="sub">(where available)</span>
+                              <ul>
+                                 <li><code>1h</code> Precipitation, mm/h. Please note that only mm/h as units of
+                                    measurement
+                                    are available for this parameter</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </section>
+            </section>
+            <section id="history_daily_aggregation">
+               <h2>Daily Aggregation</h2>
+               <p>To learn about how get access to aggregated weather data for a particular date from 2nd January 1979
+                  till long-term forecast for 1,5 years ahead, please use this section of the documentation.</p>
+               <p>If you are interested in other functionality on One Call API 3.0, please check <a href="https://openweathermap.org/api/one-call-3#concept">Product concept</a>
+                  to follow the right section.
+               </p>
+               <section id="history_daily_aggregation_how">
+                  <h3>How to make an API call</h3>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall/day_summary?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;date=<span class="query_param"><span class="query_param">{date}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lat</code></td>
+                        <td class="sub">required</td>
+                        <td>Latitude, decimal (-90; 90)</td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lon</code></td>
+                        <td class="sub">required</td>
+                        <td>Longitude, decimal (-180; 180)</td>
+                     </tr>
+                     <tr>
+                        <td><code>date</code></td>
+                        <td class="sub">required</td>
+                        <td>Date in the `YYYY-MM-DD` format for which data is requested. Date is available for 45 years
+                           archive (starting from 1979-01-02) up to the 1,5 years ahead forecast to the current date
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">appid</code></td>
+                        <td class="sub">required</td>
+                        <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                     </tr>
+                     <tr>
+                        <td><code>units</code></td>
+                        <td class="sub">optional</td>
+                        <td>Units of measurement. <code>standard</code>, <code>metric</code> and <code>imperial</code>
+                           units are available. If you do not use the <code>units</code> parameter,
+                           <code>standard</code> units will be applied by default. <a href="#data">Learn more</a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><code>lang</code></td>
+                        <td><span class="sub">optional</span></td>
+                        <td>You can use the <code>lang</code> parameter to get the output in your language. <a href="#multi">Learn more</a></td>
+                     </tr>
+                  </tbody></table>
+                  <div class="info-board info-board-blue">
+                     If the service detected timezone for your location incorrectly you can specify correct timezone
+                     manually by adding <code>tz</code> parameter in the ±XX:XX format to API call.
+                     <p class="sub-header">API call</p>
+                     <div class="api">
+                        <code>https://api.openweathermap.org/data/3.0/onecall/day_summary?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;date=<span class="query_param"><span class="query_param">{date}</span></span>&amp;tz=<span class="query_param"><span class="query_param">{tz}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                     <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <p class="sub-header">Example of API call</p>
+                     <div class="api example">
+                        <code>https://api.openweathermap.org/data/3.0/onecall/day_summary?lat=<span class="query_param">60.45</span>&amp;lon=<span class="query_param">-38.67</span>&amp;date=<span class="query_param">2023-03-30</span>&amp;tz=<span class="query_param">+03:00</span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                     <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     Please pay attention that in case timezone is specified time of afternoon, night, evening, morning
+                     temperatures, pressure, humidity will be returned in accordance with this specified timezone.
+                  </div>
+                  <p class="sub-header">Example of API call</p>
+                  <p>Before making an API call, please note, that One Call 3.0 is included in the "One Call by Call"
+                     subscription <b>only</b>. <a href="https://openweathermap.org/price">Learn more</a></p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall/day_summary?lat=<span class="query_param">39.099724</span>&amp;lon=<span class="query_param">-94.578331</span>&amp;date=<span class="query_param">2020-03-04</span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+               </section>
+               <section id="hist_agr_example">
+                  <p class="sub-header">Example of API response</p>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of API response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                   <code class="json hljs">
+  {
+   <span class="hljs-attr">"lat"</span>:<span class="hljs-number">33</span>,
+   <span class="hljs-attr">"lon"</span>:<span class="hljs-number">35</span>,
+   <span class="hljs-attr">"tz"</span>:<span class="hljs-string">"+02:00"</span>,
+   <span class="hljs-attr">"date"</span>:<span class="hljs-string">"2020-03-04"</span>,
+   <span class="hljs-attr">"units"</span>:<span class="hljs-string">"standard"</span>,
+   <span class="hljs-attr">"cloud_cover"</span>:{
+      <span class="hljs-attr">"afternoon"</span>:<span class="hljs-number">0</span>
+   },
+   <span class="hljs-attr">"humidity"</span>:{
+      <span class="hljs-attr">"afternoon"</span>:<span class="hljs-number">33</span>
+   },
+   <span class="hljs-attr">"precipitation"</span>:{
+      <span class="hljs-attr">"total"</span>:<span class="hljs-number">0</span>
+   },
+   <span class="hljs-attr">"temperature"</span>:{
+      <span class="hljs-attr">"min"</span>:<span class="hljs-number">286.48</span>,
+      <span class="hljs-attr">"max"</span>:<span class="hljs-number">299.24</span>,
+      <span class="hljs-attr">"afternoon"</span>:<span class="hljs-number">296.15</span>,
+      <span class="hljs-attr">"night"</span>:<span class="hljs-number">289.56</span>,
+      <span class="hljs-attr">"evening"</span>:<span class="hljs-number">295.93</span>,
+      <span class="hljs-attr">"morning"</span>:<span class="hljs-number">287.59</span>
+   },
+   <span class="hljs-attr">"pressure"</span>:{
+      <span class="hljs-attr">"afternoon"</span>:<span class="hljs-number">1015</span>
+   },
+   <span class="hljs-attr">"wind"</span>:{
+      <span class="hljs-attr">"max"</span>:{
+         <span class="hljs-attr">"speed"</span>:<span class="hljs-number">8.7</span>,
+         <span class="hljs-attr">"direction"</span>:<span class="hljs-number">120</span>
+      }
+   }
+}                </code>
+                 </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="hist_agr_parameter">
+                  <p class="sub-header">Fields in API response</p>
+                  <ul class="docs-list">
+                     <li><code>lat</code> Latitude of the location, decimal (−90; 90)
+                     </li>
+                     <li><code>lon</code> Longitude of the location, decimal (-180; 180)
+                     </li>
+                     <li><code>tz</code> Timezone in the ±XX:XX format
+                     </li>
+                     <li><code>date</code> Date specified in the API request in the `YYYY-MM-DD` format (from 1979-01-02
+                        up to the 1,5 years ahead forecast)
+                     </li>
+                     <li><code>units</code> Units of measurement specified in the request. <a href="#data">Learn
+                           more</a>
+                     </li>
+                     <li><code>cloud_cover</code> Cloud related information
+                        <ul>
+                           <li><code>afternoon</code> Cloud cover in percent at 12:00 for the date specified in the
+                              request
+                           </li>
+                        </ul>
+                     </li>
+                     <li><code>humidity</code> Humidity related information
+                        <ul>
+                           <li><code>afternoon</code> Relative humidity in percent at 12:00 for the date specified in
+                              the
+                              request</li>
+                        </ul>
+                     </li>
+                     <li><code>precipitation</code> Precipitation related information
+                        <ul>
+                           <li><code>total</code> Total amount of liquid water equivalent of precipitation for the date
+                              specified in the request</li>
+                        </ul>
+                     </li>
+                     <li><code>pressure</code> Atmospheric pressure related information
+                        <ul>
+                           <li><code>afternoon</code> Atmospheric pressure at 12:00 for the date specified in the
+                              request
+                           </li>
+                        </ul>
+                     </li>
+                     <li><code>temperature</code> Temperature related information
+                        <ul>
+                           <li><code>min</code> Minimum temperature for the date specified in the request</li>
+                           <li><code>max</code> Maximum temperature for the date specified in the request</li>
+                           <li><code>afternoon</code> Temperature at 12:00 for the date specified in the request</li>
+                           <li><code>night</code> Temperature at 00:00 for the date specified in the request</li>
+                           <li><code>evening</code> Temperature at 18:00 for the date specified in the request</li>
+                           <li><code>morning</code> Temperature at 06:00 for the date specified in the request</li>
+                        </ul>
+                     </li>
+                     <li><code>wind</code> Wind speed related information
+                        <ul>
+                           <li><code>max</code> Maximum wind speed related information
+                              <ul>
+                                 <li><code>speed</code> Maximum wind speed for the date specified in the request</li>
+                                 <li><code>direction</code> Wind cardinal direction relevant to the maximum wind speed,
+                                    degrees (meteorological)</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </section>
+            </section>
+            <section id="weather_overview">
+               <h2>Weather overview</h2>
+               <p>This section describes how to get weather overview with a human-readable weather summary for today and
+                  tomorrow's forecast, utilizing OpenWeather AI technologies.</p>
+               <p>If you are interested in other functionality on One Call API 3.0, please check <a href="https://openweathermap.org/api/one-call-3#concept">Product concept</a>
+                  to follow the right section.
+               </p>
+               <section id="weather_overview_how">
+                  <h3>How to make an API call</h3>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall/overview?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lat</code></td>
+                        <td class="sub">required</td>
+                        <td>Latitude, decimal (-90; 90)</td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">lon</code></td>
+                        <td class="sub">required</td>
+                        <td>Longitude, decimal (-180; 180)</td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">appid</code></td>
+                        <td class="sub">required</td>
+                        <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                     </tr>
+                     <tr>
+                        <td><code>date</code></td>
+                        <td class="sub">optional</td>
+                        <td>The date the user wants to get a weather summary in the YYYY-MM-DD format. Data is available
+                           for today and tomorrow. If not specified, the current date will be used by default. Please
+                           note that the date is determined by the timezone relevant to the coordinates specified in the
+                           API request
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><code>units</code></td>
+                        <td><span class="sub">optional</span></td>
+                        <td>Units of measurement. Standard, metric and imperial units are available. If you do not use
+                           the units parameter, standard units will be applied by default. <a href="#data">Learn
+                              more</a></td>
+                     </tr>
+                  </tbody></table>
+               </section>
+               <section id="weather_overview_example">
+                  <p class="sub-header">Example of API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall/overview?lon=<span class="query_param">-11.8092</span>&amp;lat=<span class="query_param">51.509865</span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of API response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                   <code class="json hljs">
+{
+   <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.509865</span>,
+   <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.118092</span>,
+   <span class="hljs-attr">"tz"</span>: <span class="hljs-string">"+01:00"</span>,
+   <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2024-05-13"</span>,
+   <span class="hljs-attr">"units"</span>: <span class="hljs-string">"metric"</span>,
+   <span class="hljs-attr">"weather_overview"</span>: <span class="hljs-string">"The current weather is overcast with a
+temperature of 16°C and a feels-like temperature of 16°C.
+The wind speed is 4 meter/sec with gusts up to 6 meter/sec
+coming from the west-southwest direction.
+The air pressure is at 1007 hPa with a humidity level of 79%.
+The dew point is at 12°C and the visibility is 10000 meters.
+The UV index is at 4, indicating moderate risk from the
+sun's UV rays.
+The sky is covered with overcast clouds, and there is
+no precipitation expected at the moment.
+Overall, it is a moderately cool and cloudy day
+with light to moderate winds from the west-southwest."</span>
+}
+                                       </code>
+                 </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="weather_overview_response">
+                  <p class="sub-header">Fields in API response</p>
+                  <ul class="docs-list">
+                     <li><code>lat</code> Latitude of the location, decimal (−90; 90)
+                     </li>
+                     <li><code>lon</code> Longitude of the location, decimal (-180; 180)
+                     </li>
+                     <li><code>tz</code>Timezone in the ±XX:XX format</li>
+                     <li><code>date</code> Date for which summary is generated in the format YYYY-MM-DD
+                     </li>
+                     <li><code>units</code> Units of measurement specified in the request</li>
+                     <li><code>weather_overview</code>AI generated weather overview for the requested date
+                     </li>
+                  </ul>
+               </section>
+            </section>
+            <section id="other">
+               <h2>Other features</h2>
+               <section id="list1">
+                  <h3>List of weather condition codes</h3>
+                  <p>List of <a href="https://openweathermap.org/weather-conditions">weather condition codes</a> with icons (range of
+                     thunderstorm, drizzle, rain, snow, clouds, atmosphere etc.)</p>
+               </section>
+               <section id="data">
+                  <h3>Units of measurement</h3>
+                  <p><code>standard</code>, <code>metric</code> and <code>imperial</code> units are available.</p>
+                  <a target="_blank" href="http://openweathermap.org/weather-data">List of all API parameters with
+                     available units.</a>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;units=<span class="query_param"><span class="query_param">{units}</span></span></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code>units</code></td>
+                        <td class="sub">optional</td>
+                        <td>Units of measurement. <code>standard</code>, <code>metric</code> and <code>imperial</code>
+                           units are available. If you do not use the <code>units</code> parameter,
+                           <code>standard</code> units will be applied by default.
+                        </td>
+                     </tr>
+                  </tbody></table>
+                  <div class="info-board info-board-blue">
+                     Temperature is available in Fahrenheit, Celsius and Kelvin units.
+                     <p>Wind speed is available in miles/hour and meter/sec.</p>
+                     <ul>
+                        <li>For temperature in Fahrenheit and wind speed in miles/hour, use <code>units=imperial</code>
+                        </li>
+                        <li>For temperature in Celsius and wind speed in meter/sec, use <code>units=metric</code></li>
+                        <li>Temperature in Kelvin and wind speed in meter/sec is used by default, so there is no need to
+                           use the units parameter in the API call if you want this</li>
+                     </ul>
+                  </div>
+                  <p class="sub-header">Examples of API calls</p>
+                  <p>Standard (default)</p>
+                  <div class="api example">
+                     <code>api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param">30.489772</span>&amp;lon=<span class="query_param">-99.771335</span></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <p>Metric</p>
+                  <div class="api example">
+                     <code>api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param">30.489772</span>&amp;lon=<span class="query_param">-99.771335</span>&amp;units=<span class="query_param">metric</span></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <p>Imperial</p>
+                  <div class="api example">
+                     <code>
+                  api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param">30.489772</span>&amp;lon=<span class="query_param">-99.771335</span>&amp;units=<span class="query_param">imperial
+                  </span></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+               </section>
+               <section id="multi">
+                  <h3>Multilingual support</h3>
+                  <p>You can use <code>lang</code> parameter to get the output in your language.</p>
+                  <p>The contents of the <code>description</code> field will be translated.</p>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>https://api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;lang=<span class="query_param"><span class="query_param">{lang}</span></span></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code>lang</code></td>
+                        <td><span class="sub">optional</span></td>
+                        <td>You can use the <code>lang</code> parameter to get the output in your language.</td>
+                     </tr>
+                  </tbody></table>
+                  <p class="sub-header">Example of API call</p>
+                  <p>Before making an API call, please note, that One Call 3.0 is included in the "One Call by Call"
+                     subscription <b>only</b>. <a href="https://openweathermap.org/price">Learn more</a></p>
+                  <div class="api example">
+                     <code>https://api.openweathermap.org/data/3.0/onecall?lat=<span class="query_param">30.489772</span>&amp;lon=<span class="query_param">-99.771335</span>&amp;lang=<span class="query_param">zh_cn</span></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <p>We support the following languages. To select one, you can use the corresponding language code:</p>
+                  <ul class="docs-list">
+                     <li><code>sq</code> Albanian</li>
+                     <li><code>af</code> Afrikaans</li>
+                     <li><code>ar</code> Arabic</li>
+                     <li><code>az</code> Azerbaijani</li>
+                     <li><code>eu</code> Basque</li>
+                     <li><code>be</code> Belarusian</li>
+                     <li><code>bg</code> Bulgarian</li>
+                     <li><code>ca</code> Catalan</li>
+                     <li><code>zh_cn</code> Chinese Simplified</li>
+                     <li><code>zh_tw</code> Chinese Traditional</li>
+                     <li><code>hr</code> Croatian</li>
+                     <li><code>cz</code> Czech</li>
+                     <li><code>da</code> Danish</li>
+                     <li><code>nl</code> Dutch</li>
+                     <li><code>en</code> English</li>
+                     <li><code>fi</code> Finnish</li>
+                     <li><code>fr</code> French</li>
+                     <li><code>gl</code> Galician</li>
+                     <li><code>de</code> German</li>
+                     <li><code>el</code> Greek</li>
+                     <li><code>he</code> Hebrew</li>
+                     <li><code>hi</code> Hindi</li>
+                     <li><code>hu</code> Hungarian</li>
+                     <li><code>is</code> Icelandic</li>
+                     <li><code>id</code> Indonesian</li>
+                     <li><code>it</code> Italian</li>
+                     <li><code>ja</code> Japanese</li>
+                     <li><code>kr</code> Korean</li>
+                     <li><code>ku</code> Kurmanji (Kurdish)</li>
+                     <li><code>la</code> Latvian</li>
+                     <li><code>lt</code> Lithuanian</li>
+                     <li><code>mk</code> Macedonian</li>
+                     <li><code>no</code> Norwegian</li>
+                     <li><code>fa</code> Persian (Farsi)</li>
+                     <li><code>pl</code> Polish</li>
+                     <li><code>pt</code> Portuguese</li>
+                     <li><code>pt_br</code> Português Brasil</li>
+                     <li><code>ro</code> Romanian</li>
+                     <li><code>ru</code> Russian</li>
+                     <li><code>sr</code> Serbian</li>
+                     <li><code>sk</code> Slovak</li>
+                     <li><code>sl</code> Slovenian</li>
+                     <li><code>sp, es</code> Spanish</li>
+                     <li><code>sv, se</code> Swedish</li>
+                     <li><code>th</code> Thai</li>
+                     <li><code>tr</code> Turkish</li>
+                     <li><code>ua, uk</code> Ukrainian</li>
+                     <li><code>vi</code> Vietnamese</li>
+                     <li><code>zu</code> Zulu</li>
+                  </ul>
+               </section>
+               <section id="listsource">
+                  <h3>List of national weather alerts sources</h3>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th> Country </th>
+                        <th> Agency </th>
+                     </tr>
+                     <tr>
+                        <td> Afghanistan</td>
+                        <td> National Disaster Management Authority</td>
+                     </tr>
+                     <tr>
+                        <td> Albania</td>
+                        <td> Institute of GeoSciences, Energy, Water and Environment</td>
+                     </tr>
+                     <tr>
+                        <td> Algeria</td>
+                        <td> National Meteorological Office</td>
+                     </tr>
+                     <tr>
+                        <td> Anguilla</td>
+                        <td> Disaster Management Anguilla</td>
+                     </tr>
+                     <tr>
+                        <td> Antigua and Barbuda</td>
+                        <td> Meteorological Services</td>
+                     </tr>
+                     <tr>
+                        <td> Argentina</td>
+                        <td> Servicio Meteorologico Nacional</td>
+                     </tr>
+                     <tr>
+                        <td> Aruba</td>
+                        <td> Meteorological Department of Aruba</td>
+                     </tr>
+                     <tr>
+                        <td> Austria</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Central Institute for Meteorology and Geodynamics</li>
+                              <li>Water Balance Department</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> Barbados</td>
+                        <td> Department of Emergency Management</td>
+                     </tr>
+                     <tr>
+                        <td> Belgium</td>
+                        <td> Royal Meteorological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> Bosnia and Herzegovin</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Federal Hydrometeorological Institute of BiH</li>
+                              <li>Republic Hydrometeorological Institute</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> Botswana</td>
+                        <td> Department of Meteorological Services</td>
+                     </tr>
+                     <tr>
+                        <td> Brazil</td>
+                        <td> National Meteorological Institute - INMET</td>
+                     </tr>
+                     <tr>
+                        <td> Bulgaria</td>
+                        <td> National Institute of Meteorology and Hydrology - Plovdiv branch</td>
+                     </tr>
+                     <tr>
+                        <td> Canada</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Alberta Emergency Management Agency (Government of Alberta, Ministry of Municipal
+                                 Affairs)</li>
+                              <li>Meteorological Service of Canada</li>
+                              <li>Quebec Ministry of Public Safety</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <!-- <tr>
+                <td> China</td>
+                <td> China Meteorological Administration</td>
+             </tr> -->
+                     <tr>
+                        <td> Colombia</td>
+                        <td> UNGRD (National Unit for Disaster Risk Management)</td>
+                     </tr>
+                     <tr>
+                        <td> Croatia</td>
+                        <td> State Hydrometeorological Institute (DHMZ)</td>
+                     </tr>
+                     <tr>
+                        <td> Cyprus</td>
+                        <td> Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Czech Republic</td>
+                        <td> Czech Hydrometeorological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> Denmark</td>
+                        <td> Danmarks Meteorologiske Instituts</td>
+                     </tr>
+                     <tr>
+                        <td> Estonia</td>
+                        <td> State Weather Service</td>
+                     </tr>
+                     <tr>
+                        <td> Federated States of Micronesia</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Weather Service Office Chuuk</li>
+                              <li>Weather Service Office Pohnpei</li>
+                              <li>Weather Service Office Yap</li>
+                           </ul>
+                        </td>
+                     </tr>
+
+                     <tr>
+                        <td> Finland</td>
+                        <td> Finnish Meteorological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> France</td>
+                        <td> Meteo-France</td>
+                     </tr>
+                     <tr>
+                        <td> Germany</td>
+                        <td> German Meteorological Office</td>
+                     </tr>
+                     <tr>
+                        <td> Greece</td>
+                        <td> Hellenic National Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Guyana</td>
+                        <td> Hydrometeorological Service</td>
+                     </tr>
+                     <!--  <tr>
+               <td> China/Hong Kong</td>
+               <td> Hong Kong Observatory</td>
+            </tr> -->
+                     <tr>
+                        <td> Hungary</td>
+                        <td> Hungarian Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Iceland</td>
+                        <td> Icelandic Meteorological Office</td>
+                     </tr>
+                     <tr>
+                        <td> India</td>
+                        <td> Meteorological Department</td>
+                     </tr>
+                     <tr>
+                        <td> Indonesia</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Agency for Meteorology Climatology and Geophysics of Republic Indonesia (BMKG)</li>
+                              <li>InaTEWS BMKG, Earthquake with magnitude 5.0 above</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> Ireland</td>
+                        <td> Met Eireann - Irish Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Israel</td>
+                        <td> Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Italy</td>
+                        <td> National Center of Meteorology and Aeronautical Climatology (CNMCA)</td>
+                     </tr>
+                     <tr>
+                        <td> Jamaica</td>
+                        <td> Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Kenya</td>
+                        <td> Meteorological Department</td>
+                     </tr>
+                     <tr>
+                        <td> Kuwait</td>
+                        <td> Meteorological Department</td>
+                     </tr>
+                     <tr>
+                        <td> Latvia</td>
+                        <td> Latvian Environment, Geology and Meteorology Center</td>
+                     </tr>
+                     <tr>
+                        <td> Lithuania</td>
+                        <td> Lithuanian Hydrometeorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Luxembourg</td>
+                        <td> Luxembourg Airport Administration</td>
+                     </tr>
+                     <tr>
+                        <td> Madagascar</td>
+                        <td> Operational Meteorology</td>
+                     </tr>
+                     <tr>
+                        <td> Malawi</td>
+                        <td> Meteorological Services</td>
+                     </tr>
+                     <tr>
+                        <td> Malta</td>
+                        <td> Meteorological Office</td>
+                     </tr>
+                     <tr>
+                        <td> Marshall Islands</td>
+                        <td> Majuro Weather Service Office</td>
+                     </tr>
+                     <tr>
+                        <td> Mexico</td>
+                        <td> CONAGUA - National Meteorological Service of Mexico</td>
+                     </tr>
+                     <tr>
+                        <td> Moldova</td>
+                        <td> State Hydrometeorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Mongolia</td>
+                        <td> National Agency for Meteorology and Environmental Monitoring</td>
+                     </tr>
+                     <tr>
+                        <td> Montenegro</td>
+                        <td> Institute of Hydrometeorology and Seismology</td>
+                     </tr>
+                     <tr>
+                        <td> Myanmar</td>
+                        <td> Department of Meteorology and Hydrology</td>
+                     </tr>
+                     <tr>
+                        <td> Netherlands</td>
+                        <td> Royal Netherlands Meteorological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> New Zealand</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>GNS Science</li>
+                              <li>MetService</li>
+                              <li>National Emergency Management Agency</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> North Macedonia</td>
+                        <td> Republic Hydrometeorological Organization</td>
+                     </tr>
+                     <tr>
+                        <td> Norway</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Norwegian Meteorological Institute</li>
+                              <li>Norwegian Water Resources and Energy Directorate</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> Oman</td>
+                        <td> Directorate General of Meteorology</td>
+                     </tr>
+                     <tr>
+                        <td> Palau</td>
+                        <td> Weather Service Office</td>
+                     </tr>
+                     <tr>
+                        <td> Papua New Guinea</td>
+                        <td> Papua New Guinea Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Paraguay</td>
+                        <td> Directorate of Meteorology and Hydrology</td>
+                     </tr>
+                     <tr>
+                        <td> Philippines</td>
+                        <td> Philippine Atmospheric Geophysical and Astronomical Services Administration</td>
+                     </tr>
+                     <tr>
+                        <td> Poland</td>
+                        <td> Institute of Meteorology and Water Management</td>
+                     </tr>
+                     <tr>
+                        <td> Portugal</td>
+                        <td> Portuguese Institute of Sea and Atmosphere, I.P.</td>
+                     </tr>
+                     <tr>
+                        <td> Romania</td>
+                        <td> National Meteorological Administration</td>
+                     </tr>
+                     <tr>
+                        <td> Russia</td>
+                        <td> Russian Federal Service for Hydrometeorology and Environmental Monitoring</td>
+                     </tr>
+                     <tr>
+                        <td> Saint Lucia</td>
+                        <td> Meteorological Services</td>
+                     </tr>
+                     <tr>
+                        <td> Saint Vincent and the Grenadines</td>
+                        <td> Meteorological Services</td>
+                     </tr>
+                     <tr>
+                        <td> Samoa</td>
+                        <td> Meteorology Division</td>
+                     </tr>
+                     <tr>
+                        <td> Senegal</td>
+                        <td> National Agency of Civil Aviation and Meteorology</td>
+                     </tr>
+                     <tr>
+                        <td> Serbia</td>
+                        <td> Republic Hydrometeorological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> Slovakia</td>
+                        <td> Slovak Hydrometeorological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> Slovenia</td>
+                        <td> National Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Solomon Islands</td>
+                        <td> Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> South Africa</td>
+                        <td> South Africa Weather Service</td>
+                     </tr>
+                     <tr>
+                        <td> Spain</td>
+                        <td> Meteorology Statal Agency</td>
+                     </tr>
+                     <tr>
+                        <td> Suriname</td>
+                        <td> Suriname Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Sweden</td>
+                        <td> Swedish Meteorological and Hydrological Institute</td>
+                     </tr>
+                     <tr>
+                        <td> Switzerland</td>
+                        <td> MeteoSwiss, Bundesamt für Meteorologie und Klimatologie</td>
+                     </tr>
+                     <tr>
+                        <td> Tanzania</td>
+                        <td> Meteorological Authority</td>
+                     </tr>
+                     <tr>
+                        <td> Thailand</td>
+                        <td> Thai Meteorological Department</td>
+                     </tr>
+                     <tr>
+                        <td> Tonga</td>
+                        <td> Tonga Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> Trinidad and Tobago</td>
+                        <td> Trinidad and Tobago Meteorological Service</td>
+                     </tr>
+                     <tr>
+                        <td> United Kingdom of Great Britain and Northern Ireland</td>
+                        <td> Met Office</td>
+                     </tr>
+                     <tr>
+                        <td> United States</td>
+                        <td>
+                           <ul class="national-alerts-list">
+                              <li>Environmental Protection Agency (EPA), Air Quality Alerts</li>
+                              <li>Integrated Public Alerrt and Warning System (IPAWS)</li>
+                              <li>National Oceanic and Atmospheric Administration (NOAA), National Tsunami Warning
+                                 Center
+                              </li>
+                              <li>National Oceanic and Atmospheric Administration (NOAA), National Weather Service</li>
+                              <li>National Oceanic and Atmospheric Administration (NOAA), National Weather Service -
+                                 Marine
+                                 Zones</li>
+                              <li>U.S. Geological Survey (USGS), Volcano Hazard Program</li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> Vanuatu</td>
+                        <td> Meteorological Services</td>
+                     </tr>
+                     <tr>
+                        <td> Zimbabwe</td>
+                        <td> Meteorological Services Department</td>
+                     </tr>
+                  </tbody></table>
+                  <p>Please note that some agencies from the list may cease to provide us the weather alert information.
+                     <br>
+                     In case you don’t receive alerts from any agency, please <a href="mailto:info@openweathermap.org">contact us</a>.<br>
+                     We constantly work on our product’s improvement and keep expanding the list of partner agencies.
+                  </p>
+               </section>
+               <section id="call">
+                  <h3>Call back function for JavaScript code</h3>
+                  <p>To use JavaScript code you can transfer <code>callback</code> functionName to JSONP callback.</p>
+                  <p class="sub-header">API call example</p>
+                  <div class="response">
+                     <div class="api">
+                        <code>
+                           api.openweathermap.org/data/3.0/onecall?lat=38.8&amp;lon=12.09&amp;callback=test
+                        </code>
+                     <div class="tools"><button class="tooltip-btn"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                           <code class="json hljs">
+test({
+  <span class="hljs-attr">"lat"</span>: <span class="hljs-number">40.12</span>,
+  <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-96.66</span>,
+  <span class="hljs-attr">"timezone"</span>: <span class="hljs-string">"America/Chicago"</span>,
+  <span class="hljs-attr">"timezone_offset"</span>: <span class="hljs-number">-18000</span>,
+  <span class="hljs-attr">"current"</span>: {
+    <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1595243443</span>,
+    <span class="hljs-attr">"sunrise"</span>: <span class="hljs-number">1595243663</span>,
+    <span class="hljs-attr">"sunset"</span>: <span class="hljs-number">1595296278</span>,
+    <span class="hljs-attr">"temp"</span>: <span class="hljs-number">293.28</span>,
+    <span class="hljs-attr">"feels_like"</span>: <span class="hljs-number">293.82</span>,
+    <span class="hljs-attr">"pressure"</span>: <span class="hljs-number">1016</span>,
+    <span class="hljs-attr">"humidity"</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">"dew_point"</span>: <span class="hljs-number">293.28</span>,
+    <span class="hljs-attr">"uvi"</span>: <span class="hljs-number">10.64</span>,
+    <span class="hljs-attr">"clouds"</span>: <span class="hljs-number">90</span>,
+    <span class="hljs-attr">"visibility"</span>: <span class="hljs-number">10000</span>,
+    <span class="hljs-attr">"wind_speed"</span>: <span class="hljs-number">4.6</span>,
+    <span class="hljs-attr">"wind_deg"</span>: <span class="hljs-number">310</span>,
+    <span class="hljs-attr">"weather"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">501</span>,
+        <span class="hljs-attr">"main"</span>: <span class="hljs-string">"Rain"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"moderate rain"</span>,
+        <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"10n"</span>
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">201</span>,
+        <span class="hljs-attr">"main"</span>: <span class="hljs-string">"Thunderstorm"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"thunderstorm with rain"</span>,
+        <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"11n"</span>
+      }
+    ],
+    <span class="hljs-attr">"rain"</span>: {
+      <span class="hljs-attr">"1h"</span>: <span class="hljs-number">2.93</span>
+    }
+  },
+  <span class="hljs-attr">"minutely"</span>: [
+    {
+      <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1595243460</span>,
+      <span class="hljs-attr">"precipitation"</span>: <span class="hljs-number">2.928</span>
+    },
+    ...
+  },
+    <span class="hljs-string">"hourly"</span>: [
+    {
+      <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1595242800</span>,
+      <span class="hljs-attr">"temp"</span>: <span class="hljs-number">293.28</span>,
+      <span class="hljs-attr">"feels_like"</span>: <span class="hljs-number">293.82</span>,
+      <span class="hljs-attr">"pressure"</span>: <span class="hljs-number">1016</span>,
+      <span class="hljs-attr">"humidity"</span>: <span class="hljs-number">100</span>,
+      <span class="hljs-attr">"dew_point"</span>: <span class="hljs-number">293.28</span>,
+      <span class="hljs-attr">"clouds"</span>: <span class="hljs-number">90</span>,
+      <span class="hljs-attr">"visibility"</span>: <span class="hljs-number">10000</span>,
+      <span class="hljs-attr">"wind_speed"</span>: <span class="hljs-number">4.6</span>,
+      <span class="hljs-attr">"wind_deg"</span>: <span class="hljs-number">123</span>,
+      <span class="hljs-attr">"weather"</span>: [
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">501</span>,
+          <span class="hljs-attr">"main"</span>: <span class="hljs-string">"Rain"</span>,
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"moderate rain"</span>,
+          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"10n"</span>
+        }
+      ],
+      <span class="hljs-attr">"pop"</span>: <span class="hljs-number">0.99</span>,
+      <span class="hljs-attr">"rain"</span>: {
+        <span class="hljs-attr">"1h"</span>: <span class="hljs-number">2.46</span>
+      }
+    },
+    ...
+  }
+<span class="hljs-string">"daily"</span>: [
+    {
+      <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1595268000</span>,
+      <span class="hljs-attr">"sunrise"</span>: <span class="hljs-number">1595243663</span>,
+      <span class="hljs-attr">"sunset"</span>: <span class="hljs-number">1595296278</span>,
+      <span class="hljs-attr">"temp"</span>: {
+        <span class="hljs-attr">"day"</span>: <span class="hljs-number">298.82</span>,
+        <span class="hljs-attr">"min"</span>: <span class="hljs-number">293.25</span>,
+        <span class="hljs-attr">"max"</span>: <span class="hljs-number">301.9</span>,
+        <span class="hljs-attr">"night"</span>: <span class="hljs-number">293.25</span>,
+        <span class="hljs-attr">"eve"</span>: <span class="hljs-number">299.72</span>,
+        <span class="hljs-attr">"morn"</span>: <span class="hljs-number">293.48</span>
+      },
+      <span class="hljs-attr">"feels_like"</span>: {
+        <span class="hljs-attr">"day"</span>: <span class="hljs-number">300.06</span>,
+        <span class="hljs-attr">"night"</span>: <span class="hljs-number">292.46</span>,
+        <span class="hljs-attr">"eve"</span>: <span class="hljs-number">300.87</span>,
+        <span class="hljs-attr">"morn"</span>: <span class="hljs-number">293.75</span>
+      },
+      <span class="hljs-attr">"pressure"</span>: <span class="hljs-number">1014</span>,
+      <span class="hljs-attr">"humidity"</span>: <span class="hljs-number">82</span>,
+      <span class="hljs-attr">"dew_point"</span>: <span class="hljs-number">295.52</span>,
+      <span class="hljs-attr">"wind_speed"</span>: <span class="hljs-number">5.22</span>,
+      <span class="hljs-attr">"wind_deg"</span>: <span class="hljs-number">146</span>,
+      <span class="hljs-attr">"weather"</span>: [
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">502</span>,
+          <span class="hljs-attr">"main"</span>: <span class="hljs-string">"Rain"</span>,
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"heavy intensity rain"</span>,
+          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"10d"</span>
+        }
+      ],
+      <span class="hljs-attr">"clouds"</span>: <span class="hljs-number">97</span>,
+      <span class="hljs-attr">"pop"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"rain"</span>: <span class="hljs-number">12.57</span>,
+      <span class="hljs-attr">"uvi"</span>: <span class="hljs-number">10.64</span>
+    },
+    ...
+    },
+<span class="hljs-string">"alerts"</span>: [
+    {
+      <span class="hljs-attr">"sender_name"</span>: <span class="hljs-string">"NWS Tulsa (Eastern Oklahoma)"</span>,
+      <span class="hljs-attr">"event"</span>: <span class="hljs-string">"Heat Advisory"</span>,
+      <span class="hljs-attr">"start"</span>: <span class="hljs-number">1597341600</span>,
+      <span class="hljs-attr">"end"</span>: <span class="hljs-number">1597366800</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"...HEAT ADVISORY REMAINS IN EFFECT FROM 1 PM THIS AFTERNOON TO\n8 PM CDT THIS EVENING...\n* WHAT...Heat index values of 105 to 109 degrees expected.\n* WHERE...Creek, Okfuskee, Okmulgee, McIntosh, Pittsburg,\nLatimer, Pushmataha, and Choctaw Counties.\n* WHEN...From 1 PM to 8 PM CDT Thursday.\n* IMPACTS...The combination of hot temperatures and high\nhumidity will combine to create a dangerous situation in which\nheat illnesses are possible."</span>
+    },
+    ...
+  ]
+  })
+                           </code>
+                        </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+            </section>
+            <section id="errors" class="anchor_el">
+               <h2>API errors</h2>
+               <section id="errorstructure">
+                  <h3>Structure of API errors</h3>
+                  <p>In case of incorrected API call you will receive API error response. Error response payload
+                     returned for all types of errors with the structure below.</p>
+                  <p class="sub-header">Example of error response</p>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of error response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                <code class="json hljs">
+{
+    <span class="hljs-attr">"cod"</span>:<span class="hljs-number">400</span>,
+    <span class="hljs-attr">"message"</span>:<span class="hljs-string">"Invalid date format"</span>,
+    <span class="hljs-attr">"parameters"</span>: [
+        <span class="hljs-string">"date"</span>
+    ]
+}
+        </code>
+              </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+                  <p class="sub-header">Fields in error response</p>
+                  <ul class="docs-list">
+                     <li><code>cod</code> Code of error</li>
+                     <li><code>message</code> Description of error</li>
+                     <li><code>parameters</code><span class="sub">(optional)</span> List of request parameters names
+                        that are related to this particular error</li>
+                  </ul>
+               </section>
+               <section id="popularerrors">
+                  <h3>Errors list</h3>
+                  <br>Please find more detailed information about some popular errors below.
+                  <section id="error400" class="anchor_el">
+                     <div class="question">
+                        <p class="question-heading">API calls return an error 400</p>
+                        <div class="question-content">
+                           <p>Error 400 - Bad Request. You can get 400 error if either some mandatory parameters in the
+                              request are missing or some of request parameters have incorrect format or values out of
+                              allowed range. List of all parameters names that are missing or incorrect will be returned
+                              in `parameters`attribute of the `ErrorResponse` object.</p>
+                        </div>
+                     </div>
+                  </section>
+                  <section id="error401" class="anchor_el">
+                     <div class="question">
+                        <p class="question-heading">API calls return an error 401</p>
+                        <div class="question-content">
+                           <p>Error 401 - Unauthorized. You can get 401 error if API token did not providen in the
+                              request or in case API token provided in the request does not grant access to this API.
+                              You must add API token with granted access to the product to the request before returning
+                              it.</p>
+                           <!--<p>Error 401 - Unauthorized. You can gat 401 error if API token did not provide in the request. You must add API token to the request before returing it.</p>-->
+                        </div>
+                     </div>
+                  </section>
+                  <!--<section id="error403" class="anchor_el">
+              <div class="question">
+                  <p class="question-heading">API calls return an error 403</p>
+                  <div class="question-content">
+                   <p> Error 403 - Forbidden. You can get 403 error in case API token provided in the request does not grant access to this API. You must replace API with one granted to acess Solar Radiation API before retrying request.</p>
+                  </div>
+              </div>
+            </section>-->
+                  <section id="error404" class="anchor_el">
+                     <div class="question">
+                        <p class="question-heading">API calls return an error 404</p>
+                        <div class="question-content">
+                           <p>Error 404 - Not Found. You can get 404 error if data with requested parameters
+                              (<code>lat</code>, <code>lon</code>, <code>date</code> etc) does not exist in service
+                              database. You must not retry the same request.</p>
+                        </div>
+                     </div>
+                  </section>
+
+                  <section id="error429" class="anchor_el">
+                     <div class="question">
+                        <p class="question-heading">API calls return an error 429</p>
+                        <div class="question-content">
+                           <p>Error 429 - Too Many Requests. You can get 429 error if key quota of requests for provided
+                              API to this API was exceeded. You may retry request after some time or after extending
+                              your key quota.</p>
+                        </div>
+                     </div>
+                  </section>
+
+                  <section id="error500" class="anchor_el">
+                     <div class="question">
+                        <p class="question-heading">API calls return errors '5xx'</p>
+                        <div class="question-content">
+                           <p>Errors 5xx - Unexpected Error. You can get '5xx' error in case of other internal errors.
+                              Error Response code will be `5xx`. Please <a href="https://home.openweathermap.org/questions" target="_blank">contact us</a> and
+                              enclose an example of your API request that receives this error into your email to let us
+                              analyze it and find a solution for you promptly. You may retry the request which led to
+                              this error.</p>
+                        </div>
+                     </div>
+                  </section>
+               </section>
+            </section>
+         </div>
+      </div>
+   </div>
+</div>  </main>
+  <div id="footer-website" onclick="toggleFooterSection(event)">
+   <div class="inner-footer-container">
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <p class="section-heading">Product Collections</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/api#current">Current and Forecast APIs</a></li>
+                  <li><a href="https://openweathermap.org/api#history">Historical Weather Data</a></li>
+                  <li><a href="https://openweathermap.org/api#maps">Weather Maps</a></li>
+                  <li><a href="https://openweathermap.org/weather-dashboard">Weather Dashboard</a></li>
+                  <li><a href="https://openweathermap.org/widgets-constructor">Widgets</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Subscription</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/appid">How to start</a></li>
+                  <li><a href="https://openweathermap.org/price">Pricing</a></li>
+                  <li><a href="https://home.openweathermap.org/users/sign_up">Subscribe for free</a></li>
+                  <li><a href="https://openweathermap.org/faq">FAQ</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Company</p>
+            <div class="section-content">
+               <p>OpenWeather is a team of IT experts and data scientists that has been practising deep weather data
+                  science. For each point on the globe, OpenWeather provides historical, current and forecasted weather
+                  data via light-speed APIs. Headquarters in London, UK.</p>
+            </div>
+         </div>
+      </div>
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <p class="section-heading">Technologies</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/technology">Our technology</a></li>
+                  <li><a href="https://openweathermap.org/accuracy-and-quality">Accuracy and quality of weather data</a></li>
+                  <li><a href="https://openweathermap.org/stations">Connect your weather station</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Terms &amp; Conditions</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_terms_and_conditions_of_sale.pdf" target="_blank">Terms and conditions of sale</a></li>
+                  <li><a href="https://openweather.co.uk/privacy-policy" target="_blank">Privacy Policy</a></li>
+                  <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_website_terms_and_conditions_of_use.pdf" target="_blank">Website terms and conditions</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section not-foldable">
+            <!-- <p class="section-heading">Contact us</p> -->
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/about-us">About us</a></li>
+                  <li><a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a></li>
+                  <li><a href="https://openweather.co.uk/" target="_blank">OpenWeather for Business</a></li>
+                  <li><a href="https://openweathermap.org/chat">ChatBot assistant</a></li>
+                  <li><a href="https://home.openweathermap.org/questions" target="_blank">Ask a question</a></li>
+                  <!--  <li><a href="mailto:info@openweathermap.org">info@openweathermap.org</a>  -->
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <div class="my-5">
+               <p>Download OpenWeather app</p>
+               <div>
+                  <a href="https://apps.apple.com/gb/app/openweather/id1535923697" target="_blank">
+                     <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/app-store-badge.svg" alt="Get it on AppStore">
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=uk.co.openweather" target="_blank">
+                     <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/google-play-badge.png" class="google-play-img" alt="Get it on Google Play">
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="footer-section">
+            <div class="my-5">
+               <img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/rmets1.png" height="70" alt="RMets logo">
+            </div>
+         </div>
+
+      </div>
+      <div class="horizontal-section my-5">
+         <div>
+            <span>Supplier of Achilles UVDB community</span><br>
+            <span>© 2012 — 2024 OpenWeather ® All rights reserved</span><br><br>
+         </div>
+         <div class="social">
+            <a href="https://www.facebook.com/groups/270748973021342" target="_blank"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_facebook.png" alt="facebook icon"></a>
+            <a href="https://twitter.com/OpenWeatherMap" target="_blank"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_x_black.png" alt="x icon"></a>
+            <a href="https://www.linkedin.com/company/9816754" target="_blank"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_linkedin.png" alt="linkedin icon "></a>
+            <a href="https://medium.com/@openweathermap" target="_blank"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_medium.png" alt="meduim icon"></a>
+            <a href="https://t.me/openweathermap" target="_blank"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_telegram.png" alt="telegram icon"></a>
+            <a href="https://github.com/openweathermap" target="_blank"><img src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/icon_github.png" alt="github icon"></a>
+         </div>
+      </div>
+      <div class="horizontal-section"></div>
+   </div>
+</div>  <script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/raven.min.js"></script>
+<script>Raven.config('http://66df88eb63e94f27964b84031e49b358@sentry.owm.io/16').install()</script>  <script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/bundle_owm_postload.c31872127471c475ade1.js"></script>
+<script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/postload_scripts_js.c31872127471c475ade1.js"></script>
+<script src="One%20Call%20API%203.0%20-%20OpenWeatherMap_files/advertising.js"></script>
+
+
+<div id="topcontrol" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;" title=""><i class="fa fa-angle-up backtotop"></i></div></body></html>
