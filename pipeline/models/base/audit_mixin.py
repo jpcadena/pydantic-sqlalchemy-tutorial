@@ -48,7 +48,7 @@ class AuditMixin:
         :return: None
         :rtype: NoneType
         """
-        table_name: str = cls.__tablename__
+        table_name: str = cls.__tablename__  # type: ignore
         constraints: list[CheckConstraint] = [
             CheckConstraint(
                 "created_at <= CURRENT_TIMESTAMP",
@@ -59,5 +59,5 @@ class AuditMixin:
                 name=f"{table_name}_updated_by_check",
             ),
         ]
-        cls.__table__.append_constraint(constraints[0])
-        cls.__table__.append_constraint(constraints[1])
+        cls.__table__.append_constraint(constraints[0])  # type: ignore
+        cls.__table__.append_constraint(constraints[1])  # type: ignore

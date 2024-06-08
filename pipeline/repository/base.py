@@ -9,7 +9,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from pipeline.core.decorators import benchmark
-from pipeline.models.base.base_with_id import U
+from pipeline.models.base.base import U
 
 logger: logging.Logger = logging.getLogger(__name__)
 

@@ -18,7 +18,7 @@ from app.core.exceptions import (
     ServiceException,
 )
 from app.crud.user import UserRepository, get_user_repository
-from app.schemas.user import User, UserCreate, UserUpdate, UsersResponse
+from app.schemas.user import User, UserCreate, UsersResponse, UserUpdate
 
 logger: logging.Logger = logging.getLogger(__name__)
 router: APIRouter = APIRouter(prefix="/user", tags=["user"])
