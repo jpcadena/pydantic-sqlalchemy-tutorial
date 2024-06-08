@@ -2,17 +2,13 @@
 A module for base with id in the pipeline.models.base package.
 """
 
-from typing import TypeVar
-
 from sqlalchemy import Connection
 from sqlalchemy.dialects.postgresql import INTEGER
 from sqlalchemy.event import listens_for
 from sqlalchemy.orm import Mapped, Mapper, mapped_column
 
 from pipeline.db.session import fetch_current_user
-from pipeline.models.base.base import Base
-
-U = TypeVar("U", bound="Weather")  # type: ignore
+from pipeline.models.base.base import Base, U
 
 
 class BaseWithID(Base):
