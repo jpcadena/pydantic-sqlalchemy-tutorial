@@ -23,7 +23,7 @@ keywords = [
     "database-orm",
 ]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
     "Environment :: Web Environment",
     "Framework :: FastAPI",
     "Framework :: Pydantic",
@@ -287,4 +287,4 @@ warn_required_dynamic_aliases = true
 warn_untyped_fields = true
 
 [tool.bandit]
-skips = ["B101", "B601"]
+skips = ["B101", "B601",]
