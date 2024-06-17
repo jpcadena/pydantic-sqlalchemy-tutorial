@@ -68,7 +68,7 @@ pydantic-core = "^2.18.4"
 pydantic-settings = "^2.3.1"
 pydantic-extra-types = "^2.8.0"
 email-validator = "^2.1.1"
-phonenumbers = "^8.13.38"
+phonenumbers = "^8.13.39"
 python-dotenv = "^1.0.1"
 sqlalchemy = "^2.0.30"
 psycopg = {extras = ["binary", "pool"], version = "^3.1.19"}
