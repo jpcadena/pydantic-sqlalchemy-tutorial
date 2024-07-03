@@ -4,7 +4,14 @@ A module for user in the app-schemas package.
 
 from datetime import date
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    EmailStr,
+    Field,
+    PastDate,
+    field_validator,
+)
 from pydantic.config import JsonDict
 from pydantic_extra_types.phone_numbers import (
     PhoneNumber as PydanticPhoneNumber,
@@ -49,7 +56,7 @@ class UserBase(BaseModel):
         min_length=8,
         max_length=14,
     )
-    birthdate: date | None = Field(
+    birthdate: PastDate | None = Field(
         default=None, title="Birthdate", description="Birthday of the User"
     )
     phone_number: PydanticPhoneNumber | None = Field(

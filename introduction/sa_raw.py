@@ -12,7 +12,7 @@ from typing import Any
 from sqlalchemy import CursorResult, Engine, TextClause, create_engine, text
 
 engine: Engine = create_engine(
-    "postgresql://user:password@server/database",
+    "postgresql://user:Password123@0.0.0.0:5432/data_science_prd",
 )
 text_clause: TextClause = text(
     """
@@ -45,6 +45,7 @@ with engine.connect() as connection:
         text_clause,
     )
     data: list[tuple[Any, ...]] = [tuple(row) for row in cursor_result]
+    # [(1, "A", 54.4,), (2, "ASDA", 0.42, ), (...), (), (), (), (), (), ... ]
     for record in data:
         print(record)
 
@@ -63,4 +64,5 @@ with open(filename, "w") as text_io_wrapper:
     for record in data:
         writer.writerow(record)
 
+# Another option with Pandas
 # dataframe: pd.DataFrame = pd.DataFrame(data, columns=file_header,)

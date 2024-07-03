@@ -39,8 +39,8 @@ class User(BaseModel):
 try:
     user: User = User(
         name="johndoe",
-        age="23",
+        age="hola",
     )
-    print(user.name)
+    print(user.name, user.age)
 except ValidationError as exc:
     print(exc)

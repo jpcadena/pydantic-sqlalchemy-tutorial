@@ -23,8 +23,8 @@ def get_image_b64(image_path: str) -> str:
     return base64.b64encode(Path(image_path).read_bytes()).decode("utf")
 
 
-img_b64: str = get_image_b64("assets/images/project.png")
-users_b64: str = get_image_b64("assets/images/users.png")
+img_b64: str = get_image_b64("./assets/images/project.png")
+users_b64: str = get_image_b64("./assets/images/users.png")
 
 
 class InitSettings(BaseSettings):
