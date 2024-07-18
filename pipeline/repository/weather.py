@@ -39,7 +39,10 @@ class WeatherRepository(BaseRepository):
             if existing_weather := (
                 self.session.query(Weather).filter_by(date=weather.date).first()
             ):
-                self.update(Weather(**existing_weather.__dict__))
+                for key, value in weather.__dict__.items():
+                    if key != "_sa_instance_state":
+                        setattr(existing_weather, key, value)
+                self.update(existing_weather)
             else:
                 self.add(weather)
         except IntegrityError as exc:
