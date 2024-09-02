@@ -79,7 +79,7 @@ mypy = "^1.11.2"
 pre-commit = "^3.8.0"
 fastapi = {extras = ["all"], version = "^0.112.2"}
 uvicorn = "^0.30.6"
-starlette = "^0.38.2"
+starlette = "^0.38.4"
 requests = "^2.32.3"
 types-requests = "^2.32.0.20240712"
 urllib3 = "^2.2.2"
