@@ -77,7 +77,7 @@ black = "^24.8.0"
 ruff = "^0.6.3"
 mypy = "^1.11.2"
 pre-commit = "^3.8.0"
-fastapi = {extras = ["all"], version = "^0.112.2"}
+fastapi = {extras = ["all"], version = "^0.114.0"}
 uvicorn = "^0.30.6"
 starlette = "^0.38.4"
 requests = "^2.32.3"
