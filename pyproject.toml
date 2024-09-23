@@ -73,12 +73,12 @@ sqlalchemy = "^2.0.35"
 psycopg = {extras = ["binary", "pool"], version = "^3.2.2"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.8.0"
-ruff = "^0.6.5"
+ruff = "^0.6.7"
 mypy = "^1.11.2"
 pre-commit = "^3.8.0"
 fastapi = {extras = ["all"], version = "^0.115.0"}
 uvicorn = "^0.30.6"
-starlette = "^0.38.5"
+starlette = "^0.38.6"
 requests = "^2.32.3"
 types-requests = "^2.32.0.20240914"
 urllib3 = "^2.2.3"
