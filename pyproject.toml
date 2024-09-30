@@ -70,7 +70,7 @@ email-validator = "^2.2.0"
 phonenumbers = "^8.13.45"
 python-dotenv = "^1.0.1"
 sqlalchemy = "^2.0.35"
-psycopg = {extras = ["binary", "pool"], version = "^3.2.2"}
+psycopg = {extras = ["binary", "pool"], version = "^3.2.3"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.8.0"
 ruff = "^0.6.7"
