@@ -75,7 +75,7 @@ isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.8.0"
 ruff = "^0.6.7"
 mypy = "^1.11.2"
-pre-commit = "^3.8.0"
+pre-commit = "^4.0.1"
 fastapi = {extras = ["all"], version = "^0.115.0"}
 uvicorn = "^0.30.6"
 starlette = "^0.38.6"
