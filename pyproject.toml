@@ -64,21 +64,21 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.12,<3.13"
 pydantic = "^2.9.2"
-pydantic-settings = "^2.5.2"
+pydantic-settings = "^2.6.0"
 pydantic-extra-types = "^2.9.0"
 email-validator = "^2.2.0"
-phonenumbers = "^8.13.47"
+phonenumbers = "^8.13.48"
 python-dotenv = "^1.0.1"
 sqlalchemy = "^2.0.36"
 psycopg = {extras = ["binary", "pool"], version = "^3.2.3"}
 isort = {extras = ["colors"], version = "^5.13.2"}
 black = "^24.10.0"
-ruff = "^0.6.9"
-mypy = "^1.12.0"
+ruff = "^0.7.1"
+mypy = "^1.13.0"
 pre-commit = "^4.0.1"
-fastapi = {extras = ["all"], version = "^0.115.2"}
+fastapi = {extras = ["all"], version = "^0.115.4"}
 uvicorn = "^0.32.0"
-starlette = "^0.40.0"
+starlette = "^0.41.2"
 requests = "^2.32.3"
 types-requests = "^2.32.0.20241016"
 urllib3 = "^2.2.3"
