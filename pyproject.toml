@@ -63,7 +63,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.12,<3.13"
-pydantic = "^2.10.5"
+pydantic = "^2.10.6"
 pydantic-settings = "^2.7.1"
 pydantic-extra-types = "^2.10.2"
 email-validator = "^2.2.0"
