@@ -905,13 +905,13 @@ files = [
 
 [[package]]
 name = "phonenumbers"
-version = "8.13.53"
+version = "8.13.54"
 description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
 optional = false
 python-versions = "*"
 files = [
-    {file = "phonenumbers-8.13.53-py2.py3-none-any.whl", hash = "sha256:fa7b93e12b3ac9baa7b056061cfcbe4de406039f720bb539dc240bed9cc43da2"},
-    {file = "phonenumbers-8.13.53.tar.gz", hash = "sha256:b7308f21837defa567b4f961925b6c652dd5148f3e0fadbd158a10758cc63d91"},
+    {file = "phonenumbers-8.13.54-py2.py3-none-any.whl", hash = "sha256:97624ada7260daafd09538baa6574b14cb9151cf29c5b22d9278abd050957edf"},
+    {file = "phonenumbers-8.13.54.tar.gz", hash = "sha256:4c32e3c941b24e5ce28d2211f624f0fef08462781e3d7e5e85192275cfd6c680"},
 ]
 
 [[package]]
@@ -1974,4 +1974,4 @@ pgsql = ["psycopg"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12,<3.13"
-content-hash = "3c2755c5a6b9db74b9a4da17ed65109ce354b41774e050b1b49e615a75c801c4"
+content-hash = "34b515e7bd3507edc23c16fb03ad32541bf65b9dc218ebf844779cb2f676f8f4"
